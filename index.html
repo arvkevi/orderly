@@ -22,12 +22,18 @@
         <p><strong>Goal:</strong> Arrange the events in chronological order, earliest at the top.</p>
         <p><strong>Drag</strong> events to reorder them. On mobile, tap and hold to drag.</p>
         <p><strong>Draw more events</strong> for a higher max score, but they're harder to place. Once you draw an event, you're stuck with it — choose wisely!</p>
-        <p><strong>Scoring:</strong> Getting an event in the exact right position earns big points. Being close earns much less — so precision matters!</p>
+        <p><strong>Scoring:</strong> Getting an event in the exact right position earns big points. Being close earns less. Being far off actively <em>costs</em> you — and the more events you've drawn, the steeper the cost.</p>
         <table class="scoring-table">
           <tr><td>🟩 Correct position</td><td><strong>N points</strong> (N = events attempted)</td></tr>
           <tr><td>🟨 Off by 1</td><td><strong>N − 2 points</strong></td></tr>
           <tr><td>🟧 Off by 2</td><td><strong>N − 4 points</strong></td></tr>
-          <tr><td>🟥 Off by 3+</td><td><strong>−1 point</strong></td></tr>
+          <tr><td>🟥 Off by 3+</td><td><strong>steep penalty</strong> (see below)</td></tr>
+        </table>
+        <p>The off-by-3+ penalty grows with both <strong>how far off</strong> you are and <strong>how many events</strong> you've drawn:</p>
+        <table class="scoring-table example-table">
+          <tr class="example-header"><td></td><td>Off by 3</td><td>Off by 4</td><td>Off by 5</td></tr>
+          <tr><td><strong>5 events</strong></td><td>−2</td><td>−4</td><td>−6</td></tr>
+          <tr><td><strong>10 events</strong></td><td>−4</td><td>−8</td><td>−12</td></tr>
         </table>
         <p><strong>Example — is drawing a 6th event worth it?</strong><br>
         Say you have 5 events all correct = <strong>25 pts</strong> (5×5). You draw a 6th. Now each correct event is worth 6 instead of 5, and max jumps to 36.</p>
@@ -36,7 +42,7 @@
           <tr class="example-good"><td>😎</td><td>Nail it — all 6 correct</td><td><strong>36</strong> (+11)</td></tr>
           <tr class="example-good"><td>🙂</td><td>New event off by 1, bumps 1 other</td><td><strong>32</strong> (+7)</td></tr>
           <tr class="example-good"><td>😐</td><td>New event off by 1, bumps 2 others</td><td><strong>30</strong> (+5)</td></tr>
-          <tr class="example-bad"><td>💀</td><td>New event off by 3, bumps 3 others</td><td><strong>23</strong> (−2)</td></tr>
+          <tr class="example-bad"><td>💀</td><td>New event off by 3, bumps 3 others</td><td><strong>22</strong> (−3)</td></tr>
         </table>
         <p>The reward is huge if you're confident, but one bad placement can cascade and cost you. Choose wisely!</p>
         <p><strong>Hints:</strong></p>

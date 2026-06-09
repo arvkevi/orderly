@@ -202,15 +202,19 @@ Rules:
 - No duplicates
 - IMPORTANT: Do NOT include any year (or 4-digit number resembling a year) in the "event" text — the game hides the date until the player submits, and putting the year in the description would give it away. Phrase events without dates, e.g. "Michael Jordan hits The Last Shot to win 6th title" instead of "1998: Michael Jordan...".
 - Return ONLY the JSON array, no other text
+- Return compact JSON: no indentation, no newlines between objects, no extra whitespace
 {sample_text}"""
 
     client = anthropic.Anthropic()
     print(f"Generating {count} events for '{category}'...")
-    response = client.messages.create(
-        model="claude-sonnet-4-20250514",
-        max_tokens=8192,
+    # Streaming is required above ~16K max_tokens (SDK refuses non-streamed
+    # requests at that size to avoid HTTP timeouts).
+    with client.messages.stream(
+        model="claude-sonnet-4-6",
+        max_tokens=32000,
         messages=[{"role": "user", "content": prompt}],
-    )
+    ) as stream:
+        response = stream.get_final_message()
 
     text = response.content[0].text.strip()
     # Extract JSON array from response

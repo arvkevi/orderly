@@ -22,10 +22,12 @@
     { id: 'movies-tv', label: 'Movies & TV', categories: ['movies', 'tv'] },
     { id: 'music', label: 'Music', categories: ['music'] },
     { id: 'nba', label: 'NBA', categories: ['nba'] },
+    { id: 'nfl', label: 'NFL', categories: ['nfl'] },
     { id: 'pop-culture', label: 'Pop Culture', categories: ['pop culture', 'celebrity', 'viral', 'fashion', 'food', 'social media'] },
     { id: 'science-space', label: 'Science & Space', categories: ['science', 'space', 'medicine', 'disaster'] },
     { id: 'sports', label: 'Sports', categories: ['sports'] },
     { id: 'tech-gaming', label: 'Tech & Gaming', categories: ['tech', 'gaming', 'internet'] },
+    { id: 'us-history', label: 'United States History', categories: ['us history'] },
   ];
 
   // --- State ---
@@ -182,7 +184,9 @@
     if (distance === 0) return n;
     if (distance === 1) return n - 2;
     if (distance === 2) return n - 4;
-    return -1; // off by 3+: active penalty
+    // Off by 3+: each extra step costs ⌈n/3⌉ points, so the penalty
+    // grows with both how far off you are and how many events you've drawn.
+    return -(distance - 2) * Math.ceil(n / 3);
   }
 
   function calculateScore(userOrder, correctOrder) {

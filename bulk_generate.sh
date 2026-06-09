@@ -38,6 +38,7 @@ categories=(
     "one-hit wonders"
 
     # Sports deep dives
+    "nfl"
     "Olympic records"
     "boxing"
     "tennis"
@@ -62,6 +63,7 @@ categories=(
     "electric vehicles"
 
     # History themes
+    "us history"
     "civil rights"
     "space exploration"
     "Cold War"
