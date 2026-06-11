@@ -1,0 +1,137 @@
+[
+  {
+    "id": "countries-by-area",
+    "category": "geography",
+    "title": "Countries by land area",
+    "axis": { "lowLabel": "SMALLEST", "highLabel": "LARGEST", "unit": "km²", "format": "comma" },
+    "items": [
+      { "name": "Russia", "value": 17098242 },
+      { "name": "Canada", "value": 9984670 },
+      { "name": "United States", "value": 9833517 },
+      { "name": "China", "value": 9596960 },
+      { "name": "Brazil", "value": 8515767 },
+      { "name": "Australia", "value": 7692024 },
+      { "name": "India", "value": 3287263 },
+      { "name": "Argentina", "value": 2780400 },
+      { "name": "Kazakhstan", "value": 2724900 },
+      { "name": "Algeria", "value": 2381741 },
+      { "name": "Mexico", "value": 1964375 },
+      { "name": "Indonesia", "value": 1904569 },
+      { "name": "Egypt", "value": 1002450 },
+      { "name": "France", "value": 551695 },
+      { "name": "Japan", "value": 377975 }
+    ]
+  },
+  {
+    "id": "mountains-by-height",
+    "category": "geography",
+    "title": "Mountains by height",
+    "axis": { "lowLabel": "LOWEST", "highLabel": "HIGHEST", "unit": "m", "format": "comma" },
+    "items": [
+      { "name": "Mount Everest", "value": 8849 },
+      { "name": "K2", "value": 8611 },
+      { "name": "Kangchenjunga", "value": 8586 },
+      { "name": "Lhotse", "value": 8516 },
+      { "name": "Makalu", "value": 8485 },
+      { "name": "Cho Oyu", "value": 8188 },
+      { "name": "Dhaulagiri I", "value": 8167 },
+      { "name": "Manaslu", "value": 8163 },
+      { "name": "Nanga Parbat", "value": 8126 },
+      { "name": "Annapurna I", "value": 8091 },
+      { "name": "Mont Blanc", "value": 4808 },
+      { "name": "Matterhorn", "value": 4478 },
+      { "name": "Mount Rainier", "value": 4392 },
+      { "name": "Mount Fuji", "value": 3776 },
+      { "name": "Ben Nevis", "value": 1345 }
+    ]
+  },
+  {
+    "id": "animals-by-top-speed",
+    "category": "nature",
+    "title": "Animals by top speed",
+    "axis": { "lowLabel": "SLOWEST", "highLabel": "FASTEST", "unit": "mph", "format": "comma" },
+    "items": [
+      { "name": "Cheetah", "value": 70 },
+      { "name": "Pronghorn antelope", "value": 55 },
+      { "name": "Springbok", "value": 55 },
+      { "name": "Lion", "value": 50 },
+      { "name": "Wildebeest", "value": 50 },
+      { "name": "Greyhound", "value": 45 },
+      { "name": "Jackrabbit", "value": 45 },
+      { "name": "Kangaroo", "value": 44 },
+      { "name": "Horse", "value": 43 },
+      { "name": "Zebra", "value": 40 },
+      { "name": "Giraffe", "value": 37 },
+      { "name": "Usain Bolt (human)", "value": 28 },
+      { "name": "Elephant", "value": 25 },
+      { "name": "Squirrel", "value": 12 },
+      { "name": "Tortoise", "value": 1 }
+    ]
+  },
+  {
+    "id": "us-cities-by-population",
+    "category": "economics",
+    "title": "US cities by population",
+    "axis": { "lowLabel": "FEWEST", "highLabel": "MOST", "unit": "people", "format": "compact" },
+    "items": [
+      { "name": "New York City", "value": 8478000 },
+      { "name": "Los Angeles", "value": 3878000 },
+      { "name": "Chicago", "value": 2721000 },
+      { "name": "Houston", "value": 2320000 },
+      { "name": "Phoenix", "value": 1673000 },
+      { "name": "Philadelphia", "value": 1550000 },
+      { "name": "San Antonio", "value": 1495000 },
+      { "name": "San Diego", "value": 1389000 },
+      { "name": "Dallas", "value": 1303000 },
+      { "name": "Austin", "value": 979000 },
+      { "name": "San Francisco", "value": 827000 },
+      { "name": "Seattle", "value": 780000 },
+      { "name": "Denver", "value": 716000 },
+      { "name": "Boston", "value": 654000 },
+      { "name": "Miami", "value": 456000 }
+    ]
+  },
+  {
+    "id": "words-by-scrabble-score",
+    "category": "language",
+    "title": "Words by Scrabble tile score",
+    "axis": { "lowLabel": "LOWEST", "highLabel": "HIGHEST", "unit": "points", "format": "comma" },
+    "items": [
+      { "name": "QUIZ", "value": 22 },
+      { "name": "JAZZY", "value": 33 },
+      { "name": "BUZZ", "value": 16 },
+      { "name": "FIZZ", "value": 25 },
+      { "name": "WAXY", "value": 13 },
+      { "name": "CRANE", "value": 7 },
+      { "name": "HOUSE", "value": 8 },
+      { "name": "TRAIN", "value": 5 },
+      { "name": "AUDIO", "value": 6 },
+      { "name": "QUEEN", "value": 14 },
+      { "name": "PIZZA", "value": 25 },
+      { "name": "FOXY", "value": 14 },
+      { "name": "JUMBO", "value": 14 },
+      { "name": "VODKA", "value": 12 }
+    ]
+  },
+  {
+    "id": "nba-scoring-2023",
+    "category": "sports",
+    "title": "2022-23 NBA scoring leaders",
+    "axis": { "lowLabel": "FEWEST", "highLabel": "MOST", "unit": "PPG", "format": "decimal" },
+    "items": [
+      { "name": "Joel Embiid", "value": 33.1 },
+      { "name": "Luka Dončić", "value": 32.4 },
+      { "name": "Damian Lillard", "value": 32.2 },
+      { "name": "Shai Gilgeous-Alexander", "value": 31.4 },
+      { "name": "Giannis Antetokounmpo", "value": 31.1 },
+      { "name": "Jayson Tatum", "value": 30.1 },
+      { "name": "Stephen Curry", "value": 29.4 },
+      { "name": "Kevin Durant", "value": 29.1 },
+      { "name": "De'Aaron Fox", "value": 25.0 },
+      { "name": "LeBron James", "value": 28.9 },
+      { "name": "Donovan Mitchell", "value": 28.3 },
+      { "name": "Anthony Edwards", "value": 24.6 },
+      { "name": "Devin Booker", "value": 27.8 }
+    ]
+  }
+]
