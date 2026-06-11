@@ -116,6 +116,13 @@
     return items.slice().sort((a, b) => (a[key] < b[key] ? -1 : a[key] > b[key] ? 1 : 0));
   }
 
+  // Ranking items are {name, value}; the engine identifies cards by ev.event,
+  // so alias event -> name. Idempotent and safe to call on shared pool objects.
+  function normalizeRankingItems(pool) {
+    pool.forEach(it => { if (it.event === undefined) it.event = it.name; });
+    return pool;
+  }
+
   function getStorageKey() {
     // Delegates to storageKeyFor so the key scheme lives in one place.
     return storageKeyFor(activeIdForLabel());
@@ -960,8 +967,8 @@
     let pool;
     if (currentView === 'rankings') {
       const topic = window.RankingsCore.pickDailyTopic(allTopics, currentRankCategory, getTodayString());
-      pool = topic ? window.RankingsCore.pickDailyItems(topic, getTodayString(), TOTAL_POOL) : [];
-      pool.forEach(it => { if (it.event === undefined) it.event = it.name; });
+      pool = topic ? window.RankingsCore.pickDailyItems(topic, dateStr, TOTAL_POOL) : [];
+      normalizeRankingItems(pool);
     } else {
       pool = selectDailyEvents(dateStr);
     }
@@ -1018,8 +1025,7 @@
 
     if (restorePreviousResult(dateStr)) return;
 
-    const pool = core.pickDailyItems(topic, dateStr, TOTAL_POOL);
-    pool.forEach(it => { if (it.event === undefined) it.event = it.name; });
+    const pool = normalizeRankingItems(core.pickDailyItems(topic, dateStr, TOTAL_POOL));
     const rng = core.mulberry32(core.hashString(dateStr + '-rank-' + currentRankCategory + '-display'));
     const shuffled = core.seededShuffle(pool, rng);
     activeEvents = shuffled.slice(0, INITIAL_EVENTS);

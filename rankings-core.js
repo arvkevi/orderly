@@ -78,7 +78,7 @@
   }
 
   function pickDailyItems(topic, dateStr, count) {
-    const rng = mulberry32(hashString(dateStr + '-rank-' + topic.category + '-items'));
+    const rng = mulberry32(hashString(dateStr + '-rank-' + topic.id + '-items'));
     return seededShuffle(topic.items, rng).slice(0, count);
   }
 
