@@ -81,3 +81,16 @@ test('pickDailyItems gives different sets on different dates (usually)', () => {
   const b = pickDailyItems(topic, '2026-07-15', 10).map(i => i.name).join();
   assert.notEqual(a, b);
 });
+
+test('pickDailyItems does not mutate the topic pool', () => {
+  const topic = TOPICS[0];
+  const before = topic.items.map(i => i.name);
+  pickDailyItems(topic, '2026-06-10', 10);
+  assert.deepEqual(topic.items.map(i => i.name), before);
+});
+
+test('pickDailyItems returns the whole pool when count exceeds its size', () => {
+  const topic = TOPICS[0];
+  const all = pickDailyItems(topic, '2026-06-10', 999);
+  assert.equal(all.length, topic.items.length);
+});
