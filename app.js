@@ -117,8 +117,8 @@
   }
 
   function getStorageKey() {
-    if (currentView === 'rankings') return STORAGE_KEY + '-rank-' + currentRankCategory;
-    return STORAGE_KEY + (currentMode === 'all' ? '' : '-' + currentMode);
+    // Delegates to storageKeyFor so the key scheme lives in one place.
+    return storageKeyFor(activeIdForLabel());
   }
 
   function filterEventsByMode() {
@@ -293,15 +293,8 @@
       menu.appendChild(item);
     });
 
-    // Toggle dropdown
+    // Toggle dropdown (assignment, so re-rendering doesn't stack handlers)
     toggle.onclick = () => menu.classList.toggle('hidden');
-
-    // Close on outside click
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest('#mode-dropdown')) {
-        menu.classList.add('hidden');
-      }
-    });
   }
 
   function selectEntry(id) {
@@ -1058,6 +1051,14 @@
 
     document.getElementById('view-time').addEventListener('click', () => switchView('time'));
     document.getElementById('view-rankings').addEventListener('click', () => switchView('rankings'));
+
+    // Close the mode dropdown on outside click (bound once, not per render).
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('#mode-dropdown')) {
+        const menu = document.getElementById('mode-dropdown-menu');
+        if (menu) menu.classList.add('hidden');
+      }
+    });
 
     document.getElementById('add-event-btn').addEventListener('click', addEvent);
 
