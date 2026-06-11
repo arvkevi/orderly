@@ -10,7 +10,7 @@
   --surface-hover: #2a2a2d;
   --border: #3a3a3c;
   --text: #d7dadc;
-  --text-muted: #818384;
+  --text-muted: #9ea1a3;
   --correct: #538d4e;
   --correct-bg: rgba(83, 141, 78, 0.15);
   --incorrect: #c9444d;
@@ -85,6 +85,36 @@ header h1 {
 
 .tagline strong {
   color: var(--text);
+}
+
+/* Rankings prompt banner — the "what am I ordering?" question, kept prominent */
+.rank-prompt {
+  text-align: center;
+  margin: 2px auto 16px;
+  padding: 13px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+}
+.rank-prompt-title {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text);
+}
+.rank-prompt-dir {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+}
+.rank-prompt-arrow {
+  opacity: 0.65;
+  margin: 0 2px;
 }
 
 /* Mode selector */

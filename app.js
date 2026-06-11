@@ -329,6 +329,22 @@
     }
   }
 
+  // Prominent "what am I ordering?" banner shown above the board in Rankings.
+  function updateRankPrompt() {
+    const el = document.getElementById('rank-prompt');
+    if (!el) return;
+    if (currentView === 'rankings' && activePuzzle) {
+      const ax = activePuzzle.axis;
+      el.innerHTML =
+        `<span class="rank-prompt-title">${escapeHtml(activePuzzle.title)}</span>` +
+        `<span class="rank-prompt-dir">${escapeHtml(ax.lowLabel)}` +
+        ` <span class="rank-prompt-arrow">→</span> ${escapeHtml(ax.highLabel)}</span>`;
+      el.classList.remove('hidden');
+    } else {
+      el.classList.add('hidden');
+    }
+  }
+
   function switchView(view) {
     if (view === currentView) return;
     currentView = view;
@@ -364,7 +380,7 @@
     let label;
     if (currentView === 'rankings') {
       const cat = RANK_CATEGORIES.find(c => c.id === currentRankCategory);
-      label = ` · ${cat ? cat.label : ''}${activePuzzle ? ' — ' + activePuzzle.title : ''}`;
+      label = ` · ${cat ? cat.label : ''}`;
     } else {
       const mode = getModeById(currentMode);
       label = currentMode === 'all' ? '' : ` · ${mode.label}`;
@@ -410,6 +426,7 @@
     const highEl = document.getElementById('cap-high');
     if (lowEl) lowEl.textContent = axis.lowLabel;
     if (highEl) highEl.textContent = axis.highLabel;
+    updateRankPrompt();
     activeEvents.forEach((ev, idx) => {
       list.appendChild(createEventCard(ev, idx));
     });
