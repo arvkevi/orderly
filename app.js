@@ -902,7 +902,14 @@
       perEvent: saved.perEvent || []
     };
 
-    const pool = selectDailyEvents(dateStr);
+    let pool;
+    if (currentView === 'rankings') {
+      const topic = window.RankingsCore.pickDailyTopic(allTopics, currentRankCategory, getTodayString());
+      pool = topic ? window.RankingsCore.pickDailyItems(topic, getTodayString(), TOTAL_POOL) : [];
+      pool.forEach(it => { if (it.event === undefined) it.event = it.name; });
+    } else {
+      pool = selectDailyEvents(dateStr);
+    }
     const correctOrder = saved.correctEvents
       ? saved.correctEvents.map(name => pool.find(e => e.event === name) || { event: name, date: '?' })
       : sortByActiveKey(pool.slice(0, saved.attempted));
@@ -939,6 +946,40 @@
     renderEventList();
   }
 
+  function startRankingPuzzle() {
+    const dateStr = getTodayString();
+    const core = window.RankingsCore;
+    const topic = core.pickDailyTopic(allTopics, currentRankCategory, dateStr);
+
+    if (!topic) {
+      document.getElementById('loading').textContent =
+        'No puzzle available for this category yet.';
+      document.getElementById('loading').classList.remove('hidden');
+      return;
+    }
+
+    activePuzzle = { topicId: topic.id, title: topic.title, axis: topic.axis };
+    renderPuzzleInfo(dateStr);
+
+    if (restorePreviousResult(dateStr)) return;
+
+    const pool = core.pickDailyItems(topic, dateStr, TOTAL_POOL);
+    pool.forEach(it => { if (it.event === undefined) it.event = it.name; });
+    const rng = core.mulberry32(core.hashString(dateStr + '-rank-' + currentRankCategory + '-display'));
+    const shuffled = core.seededShuffle(pool, rng);
+    activeEvents = shuffled.slice(0, INITIAL_EVENTS);
+    reserveEvents = shuffled.slice(INITIAL_EVENTS, TOTAL_POOL);
+
+    document.getElementById('loading').classList.add('hidden');
+    document.getElementById('game').classList.remove('hidden');
+    renderEventList();
+  }
+
+  function startActivePuzzle() {
+    if (currentView === 'rankings') startRankingPuzzle();
+    else startPuzzle();
+  }
+
   // --- Init ---
   async function init() {
     try {
@@ -949,6 +990,13 @@
       document.getElementById('loading').textContent =
         'Failed to load events. Make sure to serve this via a web server (e.g. npx serve).';
       return;
+    }
+
+    try {
+      const rResp = await fetch('rankings.json');
+      if (rResp.ok) allTopics = await rResp.json();
+    } catch (e) {
+      allTopics = [];
     }
 
     // Open "How to Play" on first visit, collapsed for returning players
