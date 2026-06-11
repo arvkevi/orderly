@@ -7,6 +7,7 @@ test('formatValue compact uses word magnitudes', () => {
   assert.equal(formatValue(375000, { format: 'compact', unit: 'people' }), '375 thousand people');
   assert.equal(formatValue(2500000000000, { format: 'compact', unit: '' }), '2.5 trillion');
   assert.equal(formatValue(840, { format: 'compact', unit: '' }), '840');
+  assert.equal(formatValue(999.9, { format: 'compact', unit: 'km' }), '1 thousand km');
 });
 
 test('formatValue comma groups thousands', () => {
@@ -35,6 +36,6 @@ test('seededShuffle is a permutation and deterministic for a fixed rng seed', ()
   const out1 = seededShuffle(src, mulberry32(123));
   const out2 = seededShuffle(src, mulberry32(123));
   assert.deepEqual(out1, out2);
-  assert.deepEqual([...out1].sort(), src);
+  assert.deepEqual([...out1].sort((a, b) => a - b), src);
   assert.deepEqual(src, [1, 2, 3, 4, 5]); // input not mutated
 });

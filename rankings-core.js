@@ -22,6 +22,7 @@
   }
 
   function compact(value) {
+    const sign = value < 0 ? -1 : 1;
     const abs = Math.abs(value);
     const tiers = [
       [1e12, 'trillion'],
@@ -30,11 +31,12 @@
       [1e3, 'thousand'],
     ];
     for (const [base, word] of tiers) {
-      if (abs >= base) {
-        const n = value / base;
-        const rounded = Math.round(n * 10) / 10;
+      // Round to 1 decimal at this tier first, so values that round up to the
+      // tier boundary (e.g. 999.9 thousand-ish) still get the right label.
+      const rounded = Math.round((abs / base) * 10) / 10;
+      if (rounded >= 1) {
         const numStr = Number.isInteger(rounded) ? String(rounded) : rounded.toFixed(1);
-        return `${numStr} ${word}`;
+        return `${sign < 0 ? '-' : ''}${numStr} ${word}`;
       }
     }
     return String(Math.round(value));
