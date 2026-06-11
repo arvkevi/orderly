@@ -75,13 +75,52 @@ python3 generate_events.py generate --category "90s movies" --count 100
 ./bulk_generate.sh
 ```
 
+## Rankings view
+
+A second game family: order items by a measurable attribute instead of by date. One puzzle
+per top-level category each day (Geography, Nature & Human-Scale, Economics & Data,
+Language & Culture, Sports). Reachable at `#rankings/<category>` or via the 📊 Rankings toggle.
+Each view keeps its own per-category daily streak; Rankings has no hints.
+
+Data lives in `rankings.json` — an array of topic objects, each a pool of items sharing one
+axis (the daily seed draws 10 from the pool):
+
+```json
+{
+  "id": "mountains-by-height",
+  "category": "geography",
+  "title": "Mountains by height",
+  "axis": { "lowLabel": "LOWEST", "highLabel": "HIGHEST", "unit": "m", "format": "comma" },
+  "items": [ { "name": "Mount Everest", "value": 8849 } ]
+}
+```
+
+`category` is one of `geography` | `nature` | `economics` | `language` | `sports`.
+`axis.format` is one of `compact` | `comma` | `decimal` | `plain`. Items are ordered ascending
+by `value`. Validate the file with:
+
+```bash
+node validate_rankings.js
+```
+
+The pure ordering logic (value formatting, seeded daily selection) lives in `rankings-core.js`
+and is unit-tested:
+
+```bash
+node --test
+```
+
 ## Project structure
 
 ```
 index.html          Main page
 style.css           Styles
-app.js              Game logic
-events.json         Event data (~10k events)
+app.js              Game logic (Time + Rankings views)
+events.json         Date-puzzle data (~10k events)
+rankings.json       Rankings-puzzle data (topics by measurable value)
+rankings-core.js    Pure helpers shared by browser + Node tests
+validate_rankings.js  rankings.json integrity validator / CLI
+test/               Node --test unit tests
 rabbit.svg          Logo icon
 generate_events.py  Event management CLI
 bulk_generate.sh    Bulk event generation script
