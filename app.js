@@ -1,6 +1,8 @@
 (function () {
   'use strict';
 
+  const { mulberry32, hashString, seededShuffle } = window.RankingsCore;
+
   // --- Config ---
   const BASE_DATE = '2026-03-31';
   const INITIAL_EVENTS = 5;
@@ -40,35 +42,6 @@
   let revealedDecades = new Set();
   let drawnEvents = [];
   let submitted = false;
-
-  // --- Seeded PRNG (mulberry32) ---
-  function mulberry32(seed) {
-    return function () {
-      seed |= 0;
-      seed = seed + 0x6D2B79F5 | 0;
-      let t = Math.imul(seed ^ seed >>> 15, 1 | seed);
-      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
-      return ((t ^ t >>> 14) >>> 0) / 4294967296;
-    };
-  }
-
-  function hashString(str) {
-    let h = 0;
-    for (let i = 0; i < str.length; i++) {
-      h = ((h << 5) - h) + str.charCodeAt(i);
-      h |= 0;
-    }
-    return h;
-  }
-
-  function seededShuffle(arr, rng) {
-    const a = arr.slice();
-    for (let i = a.length - 1; i > 0; i--) {
-      const j = Math.floor(rng() * (i + 1));
-      [a[i], a[j]] = [a[j], a[i]];
-    }
-    return a;
-  }
 
   // --- Date helpers ---
   function getTodayString() {
