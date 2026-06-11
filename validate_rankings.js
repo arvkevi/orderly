@@ -1,7 +1,7 @@
 'use strict';
 const VALID_CATEGORIES = ['geography', 'nature', 'economics', 'language', 'sports'];
-const MIN_ITEMS = 12;     // pool must exceed the 10 drawn per day
-const MIN_TOPICS_PER_CATEGORY = 1;
+const MIN_ITEMS = 20;     // pool must comfortably exceed the 10 drawn per day
+const MIN_TOPICS_PER_CATEGORY = 4;
 
 function validateRankings(topics) {
   const errors = [];
