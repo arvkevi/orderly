@@ -32,6 +32,15 @@
     { id: 'us-history', label: 'United States History', categories: ['us history'] },
   ];
 
+  // --- Ranking categories (one daily puzzle each) ---
+  const RANK_CATEGORIES = [
+    { id: 'geography', label: 'Geography' },
+    { id: 'nature', label: 'Nature & Human-Scale' },
+    { id: 'economics', label: 'Economics & Data' },
+    { id: 'language', label: 'Language & Culture' },
+    { id: 'sports', label: 'Sports' },
+  ];
+
   // --- State ---
   let allEvents = [];
   let currentMode = 'all';
@@ -42,6 +51,10 @@
   let revealedDecades = new Set();
   let drawnEvents = [];
   let submitted = false;
+  let currentView = 'time';        // 'time' | 'rankings'
+  let allTopics = [];              // loaded from rankings.json
+  let currentRankCategory = RANK_CATEGORIES[0].id;
+  let activePuzzle = null;         // descriptor for the current ranking puzzle
 
   // --- Date helpers ---
   function getTodayString() {
@@ -80,7 +93,31 @@
     return MODES.find(m => m.id === id) || MODES[0];
   }
 
+  // The engine reads ordering/labels/formatting through this descriptor so the
+  // same code path serves both the Time view and the Rankings view.
+  function timePuzzleAxis() {
+    return { lowLabel: 'EARLIEST', highLabel: 'MOST RECENT' };
+  }
+
+  function itemDisplayString(item) {
+    if (currentView === 'rankings' && activePuzzle) {
+      return window.RankingsCore.formatValue(item.value, activePuzzle.axis);
+    }
+    return formatDate(item.date);
+  }
+
+  function currentAxis() {
+    if (currentView === 'rankings' && activePuzzle) return activePuzzle.axis;
+    return timePuzzleAxis();
+  }
+
+  function sortByActiveKey(items) {
+    const key = currentView === 'rankings' ? 'value' : 'date';
+    return items.slice().sort((a, b) => (a[key] < b[key] ? -1 : a[key] > b[key] ? 1 : 0));
+  }
+
   function getStorageKey() {
+    if (currentView === 'rankings') return STORAGE_KEY + '-rank-' + currentRankCategory;
     return STORAGE_KEY + (currentMode === 'all' ? '' : '-' + currentMode);
   }
 
@@ -98,6 +135,28 @@
     const hash = window.location.hash.replace('#', '');
     if (hash && MODES.some(m => m.id === hash)) return hash;
     return 'all';
+  }
+
+  // Returns { view, mode, rankCategory } parsed from the URL hash.
+  // Time:     ''  | '#nba' | '#kpop' ...
+  // Rankings: '#rankings' | '#rankings/geography'
+  function parseHash() {
+    const hash = window.location.hash.replace(/^#/, '');
+    if (hash === 'rankings' || hash.startsWith('rankings/')) {
+      const cat = hash.split('/')[1];
+      const valid = RANK_CATEGORIES.some(c => c.id === cat);
+      return { view: 'rankings', mode: 'all', rankCategory: valid ? cat : RANK_CATEGORIES[0].id };
+    }
+    const mode = MODES.some(m => m.id === hash) ? hash : 'all';
+    return { view: 'time', mode, rankCategory: RANK_CATEGORIES[0].id };
+  }
+
+  function writeHash() {
+    if (currentView === 'rankings') {
+      window.location.hash = 'rankings/' + currentRankCategory;
+    } else {
+      window.location.hash = currentMode === 'all' ? '' : currentMode;
+    }
   }
 
   // --- Local storage ---
@@ -143,14 +202,6 @@
     } else {
       return shuffled.slice(0, TOTAL_POOL);
     }
-  }
-
-  function sortByDate(events) {
-    return events.slice().sort((a, b) => {
-      if (a.date < b.date) return -1;
-      if (a.date > b.date) return 1;
-      return 0;
-    });
   }
 
   function scoreForDistance(n, distance) {
@@ -627,7 +678,7 @@
     if (submitted || activeEvents.length < MIN_EVENTS) return;
     submitted = true;
 
-    const correctOrder = sortByDate(activeEvents);
+    const correctOrder = sortByActiveKey(activeEvents);
     const result = calculateScore(activeEvents, correctOrder);
 
     const dateStr = getTodayString();
@@ -854,7 +905,7 @@
     const pool = selectDailyEvents(dateStr);
     const correctOrder = saved.correctEvents
       ? saved.correctEvents.map(name => pool.find(e => e.event === name) || { event: name, date: '?' })
-      : sortByDate(pool.slice(0, saved.attempted));
+      : sortByActiveKey(pool.slice(0, saved.attempted));
 
     activeEvents = saved.events
       ? saved.events.map(name => pool.find(e => e.event === name) || { event: name, date: '?' })
