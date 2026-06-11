@@ -417,6 +417,8 @@
     const count = reserveEvents.length;
     const btn = document.getElementById('add-event-btn');
     const countEl = document.getElementById('remaining-count');
+    const labelEl = document.getElementById('draw-label');
+    if (labelEl) labelEl.textContent = currentView === 'rankings' ? 'Draw another' : 'Draw Event';
     countEl.textContent = `(${count} remaining)`;
     btn.disabled = count === 0;
     btn.classList.toggle('btn-disabled', count === 0);
