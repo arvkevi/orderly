@@ -312,6 +312,16 @@
     startActivePuzzle();
   }
 
+  function updateTagline() {
+    const el = document.getElementById('tagline');
+    if (!el) return;
+    if (currentView === 'rankings') {
+      el.innerHTML = 'Arrange items from <strong>least</strong> (top) to <strong>most</strong> (bottom)';
+    } else {
+      el.innerHTML = 'Arrange events from <strong>earliest</strong> (top) to <strong>latest</strong> (bottom)';
+    }
+  }
+
   function switchView(view) {
     if (view === currentView) return;
     currentView = view;
@@ -323,6 +333,7 @@
     resetGameState();
     renderModeSelector();
     startActivePuzzle();
+    updateTagline();
   }
 
   function resetGameState() {
@@ -343,10 +354,16 @@
   function renderPuzzleInfo(dateStr) {
     const num = getPuzzleNumber(dateStr);
     const displayDate = formatDate(dateStr);
-    const mode = getModeById(currentMode);
-    const modeLabel = currentMode === 'all' ? '' : ` · ${mode.label}`;
+    let label;
+    if (currentView === 'rankings') {
+      const cat = RANK_CATEGORIES.find(c => c.id === currentRankCategory);
+      label = ` · ${cat ? cat.label : ''}${activePuzzle ? ' — ' + activePuzzle.title : ''}`;
+    } else {
+      const mode = getModeById(currentMode);
+      label = currentMode === 'all' ? '' : ` · ${mode.label}`;
+    }
     document.getElementById('puzzle-info').textContent =
-      `Puzzle #${num}${modeLabel} — ${displayDate}`;
+      `Puzzle #${num}${label} — ${displayDate}`;
   }
 
   function updateScorePreview() {
@@ -776,7 +793,7 @@
           <div class="row-body">
             <div class="row-event" title="${title}">${escapeHtml(ev.event)}</div>
             <div class="row-meta">
-              <span class="row-date">${formatDate(ev.date)}</span>
+              <span class="row-date">${escapeHtml(itemDisplayString(ev))}</span>
               <span class="row-distance">${distLabel}</span>
             </div>
           </div>
@@ -895,15 +912,22 @@
 
   function shareResults(result, dateStr) {
     const num = getPuzzleNumber(dateStr);
-    const mode = getModeById(currentMode);
-    const modeLabel = currentMode === 'all' ? '' : ` [${mode.label}]`;
     const emoji = result.perEvent.map(e => {
       if (e.distance === 0) return '🟩';
       if (e.distance === 1) return '🟨';
       if (e.distance === 2) return '🟧';
       return '🟥';
     }).join('');
-    const text = `⏱️ Orderly #${num}${modeLabel}\nScore: ${result.score}/${result.maxScore} (${result.attempted} events)\n${emoji}`;
+    let header;
+    if (currentView === 'rankings') {
+      const cat = RANK_CATEGORIES.find(c => c.id === currentRankCategory);
+      header = `📊 Orderly Rankings #${num} [${cat ? cat.label : ''}]`;
+    } else {
+      const mode = getModeById(currentMode);
+      const modeLabel = currentMode === 'all' ? '' : ` [${mode.label}]`;
+      header = `⏱️ Orderly #${num}${modeLabel}`;
+    }
+    const text = `${header}\nScore: ${result.score}/${result.maxScore} (${result.attempted} events)\n${emoji}`;
 
     navigator.clipboard.writeText(text).then(() => {
       const msg = document.getElementById('copied-msg');
@@ -1044,6 +1068,7 @@
     document.getElementById('view-time').classList.toggle('active', currentView === 'time');
     document.getElementById('view-rankings').classList.toggle('active', currentView === 'rankings');
     document.body.classList.toggle('rankings-view', currentView === 'rankings');
+    updateTagline();
     filterEventsByMode();
     renderModeSelector();
     startActivePuzzle();
