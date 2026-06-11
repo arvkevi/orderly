@@ -329,9 +329,9 @@
     }
   }
 
-  // Prominent "what am I ordering?" banner shown above the board in Rankings.
-  function updateRankPrompt() {
-    const el = document.getElementById('rank-prompt');
+  // Prominent "what am I ordering?" banner (topic + direction). Shown above the
+  // board while playing AND on the results screen in the Rankings view.
+  function renderRankPromptInto(el) {
     if (!el) return;
     if (currentView === 'rankings' && activePuzzle) {
       const ax = activePuzzle.axis;
@@ -343,6 +343,10 @@
     } else {
       el.classList.add('hidden');
     }
+  }
+
+  function updateRankPrompt() {
+    renderRankPromptInto(document.getElementById('rank-prompt'));
   }
 
   function switchView(view) {
@@ -772,6 +776,7 @@
     document.getElementById('game').classList.add('hidden');
     document.getElementById('results').classList.remove('hidden');
     document.body.classList.add('results-view');
+    renderRankPromptInto(document.getElementById('results-prompt'));
 
     const pct = result.maxScore > 0 ? result.score / result.maxScore : 0;
     let title = 'Nice try!';
