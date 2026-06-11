@@ -54,6 +54,11 @@
       </div>
     </details>
 
+    <div id="view-toggle" role="tablist" aria-label="Game mode">
+      <button id="view-time" class="view-btn active" role="tab">⏱ Time</button>
+      <button id="view-rankings" class="view-btn" role="tab">📊 Rankings</button>
+    </div>
+
     <div id="mode-selector">
       <div id="mode-dropdown">
         <button id="mode-dropdown-toggle" class="mode-toggle">
@@ -86,14 +91,14 @@
       <div class="timeline-wrapper">
         <div class="timeline-cap timeline-cap-start">
           <span class="timeline-cap-dot"></span>
-          <span class="timeline-cap-label">EARLIEST</span>
+          <span class="timeline-cap-label" id="cap-low">EARLIEST</span>
         </div>
         <div class="timeline-track">
           <div id="event-list"></div>
         </div>
         <div class="timeline-cap timeline-cap-end">
           <span class="timeline-cap-dot"></span>
-          <span class="timeline-cap-label">MOST RECENT</span>
+          <span class="timeline-cap-label" id="cap-high">MOST RECENT</span>
         </div>
       </div>
 

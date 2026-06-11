@@ -1030,3 +1030,32 @@ body.results-view #app {
     text-align: center;
   }
 }
+
+#view-toggle {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  margin: 0 auto 12px;
+}
+.view-btn {
+  padding: 8px 18px;
+  border: 1px solid var(--border, #d0d0d0);
+  background: transparent;
+  border-radius: 999px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+  opacity: 0.6;
+}
+.view-btn.active {
+  opacity: 1;
+  background: var(--accent, #2d2d2d);
+  color: #fff;
+  border-color: transparent;
+}
+.mode-item-subtitle {
+  display: block;
+  font-size: 0.8em;
+  opacity: 0.6;
+  font-weight: 400;
+}

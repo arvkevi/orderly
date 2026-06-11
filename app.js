@@ -131,12 +131,6 @@
     }
   }
 
-  function getModeFromHash() {
-    const hash = window.location.hash.replace('#', '');
-    if (hash && MODES.some(m => m.id === hash)) return hash;
-    return 'all';
-  }
-
   // Returns { view, mode, rankCategory } parsed from the URL hash.
   // Time:     ''  | '#nba' | '#kpop' ...
   // Rankings: '#rankings' | '#rankings/geography'
@@ -237,50 +231,64 @@
   }
 
   // --- Mode selector rendering ---
-  function isModeCompleted(modeId) {
-    const key = STORAGE_KEY + (modeId === 'all' ? '' : '-' + modeId);
-    const data = JSON.parse(localStorage.getItem(key) || '{}');
+  function currentMenuEntries() {
+    if (currentView === 'rankings') {
+      return RANK_CATEGORIES.map(c => {
+        const topic = window.RankingsCore.pickDailyTopic(allTopics, c.id, getTodayString());
+        return { id: c.id, label: c.label, subtitle: topic ? topic.title : '—' };
+      });
+    }
+    return MODES.map(m => ({ id: m.id, label: m.label, subtitle: null }));
+  }
+
+  function activeIdForLabel() {
+    return currentView === 'rankings' ? currentRankCategory : currentMode;
+  }
+
+  function storageKeyFor(id) {
+    if (currentView === 'rankings') return STORAGE_KEY + '-rank-' + id;
+    return STORAGE_KEY + (id === 'all' ? '' : '-' + id);
+  }
+
+  function isEntryCompleted(id) {
+    const data = JSON.parse(localStorage.getItem(storageKeyFor(id)) || '{}');
     return !!data[getTodayString()];
   }
 
-  function getModeScore(modeId) {
-    const key = STORAGE_KEY + (modeId === 'all' ? '' : '-' + modeId);
-    const data = JSON.parse(localStorage.getItem(key) || '{}');
-    const result = data[getTodayString()];
-    return result ? result : null;
+  function getEntryScore(id) {
+    const data = JSON.parse(localStorage.getItem(storageKeyFor(id)) || '{}');
+    return data[getTodayString()] || null;
   }
 
   function renderModeSelector() {
     const toggle = document.getElementById('mode-dropdown-toggle');
     const label = document.getElementById('mode-current-label');
     const menu = document.getElementById('mode-dropdown-menu');
-    const currentModeObj = getModeById(currentMode);
-    const completed = isModeCompleted(currentMode);
 
-    label.textContent = (completed ? '✓ ' : '') + currentModeObj.label;
+    const currentLabel = currentView === 'rankings'
+      ? (RANK_CATEGORIES.find(c => c.id === currentRankCategory) || RANK_CATEGORIES[0]).label
+      : getModeById(currentMode).label;
+    const completed = isEntryCompleted(activeIdForLabel());
+    label.textContent = (completed ? '✓ ' : '') + currentLabel;
     toggle.classList.toggle('completed', completed);
 
     menu.innerHTML = '';
-    MODES.forEach(mode => {
+    const activeId = currentView === 'rankings' ? currentRankCategory : currentMode;
+    currentMenuEntries().forEach(entry => {
+      const done = isEntryCompleted(entry.id);
+      const result = getEntryScore(entry.id);
       const item = document.createElement('button');
-      const done = isModeCompleted(mode.id);
-      const result = getModeScore(mode.id);
       item.className = 'mode-menu-item' +
-        (mode.id === currentMode ? ' active' : '') +
-        (done ? ' completed' : '');
-
-      let scoreText = '';
-      if (result) {
-        scoreText = `<span class="mode-score">${result.score}/${result.maxScore}</span>`;
-      }
-
-      item.innerHTML = `
-        <span class="mode-item-label">${done ? '✓ ' : ''}${mode.label}</span>
-        ${scoreText}
-      `;
+        (entry.id === activeId ? ' active' : '') + (done ? ' completed' : '');
+      const scoreText = result
+        ? `<span class="mode-score">${result.score}/${result.maxScore}</span>` : '';
+      const subtitle = entry.subtitle
+        ? `<span class="mode-item-subtitle">${escapeHtml(entry.subtitle)}</span>` : '';
+      item.innerHTML =
+        `<span class="mode-item-label">${done ? '✓ ' : ''}${escapeHtml(entry.label)}${subtitle}</span>${scoreText}`;
       item.addEventListener('click', () => {
         menu.classList.add('hidden');
-        if (mode.id !== currentMode) switchMode(mode.id);
+        selectEntry(entry.id);
       });
       menu.appendChild(item);
     });
@@ -296,14 +304,32 @@
     });
   }
 
-  function switchMode(modeId) {
-    if (modeId === currentMode) return;
-    currentMode = modeId;
-    window.location.hash = modeId === 'all' ? '' : modeId;
+  function selectEntry(id) {
+    if (currentView === 'rankings') {
+      if (id === currentRankCategory) return;
+      currentRankCategory = id;
+    } else {
+      if (id === currentMode) return;
+      currentMode = id;
+      filterEventsByMode();
+    }
+    writeHash();
     resetGameState();
-    filterEventsByMode();
     renderModeSelector();
-    startPuzzle();
+    startActivePuzzle();
+  }
+
+  function switchView(view) {
+    if (view === currentView) return;
+    currentView = view;
+    document.getElementById('view-time').classList.toggle('active', view === 'time');
+    document.getElementById('view-rankings').classList.toggle('active', view === 'rankings');
+    document.body.classList.toggle('rankings-view', view === 'rankings');
+    if (view === 'time') filterEventsByMode();
+    writeHash();
+    resetGameState();
+    renderModeSelector();
+    startActivePuzzle();
   }
 
   function resetGameState() {
@@ -362,6 +388,11 @@
   function renderEventList() {
     const list = document.getElementById('event-list');
     list.innerHTML = '';
+    const axis = currentAxis();
+    const lowEl = document.getElementById('cap-low');
+    const highEl = document.getElementById('cap-high');
+    if (lowEl) lowEl.textContent = axis.lowLabel;
+    if (highEl) highEl.textContent = axis.highLabel;
     activeEvents.forEach((ev, idx) => {
       list.appendChild(createEventCard(ev, idx));
     });
@@ -377,13 +408,10 @@
 
     const catRevealed = revealedCategories.has(ev.event);
     const decRevealed = revealedDecades.has(ev.event);
-    const showCatHint = currentMode === 'all';
+    const showHints = currentView === 'time';
+    const showCatHint = currentView === 'time' && currentMode === 'all';
 
-    card.innerHTML = `
-      <span class="card-grip">⠿</span>
-      <span class="card-number">${index + 1}</span>
-      <div class="card-body">
-        <span class="card-event-name">${escapeHtml(ev.event)}</span>
+    const hintsRowHtml = showHints ? `
         <div class="card-hints-row">
           ${showCatHint ? `
             <button class="hint-btn hint-category-btn ${catRevealed ? 'hidden' : ''}" title="Costs ${CATEGORY_HINT_COST} pt">Category <span class="hint-cost">−${CATEGORY_HINT_COST}</span></button>
@@ -392,6 +420,14 @@
           <button class="hint-btn hint-decade-btn ${decRevealed ? 'hidden' : ''}" title="Costs ${getDecadeHintCost()} pts">Decade <span class="hint-cost">−${getDecadeHintCost()}</span></button>
           <span class="hint-revealed hint-dec-value ${decRevealed ? '' : 'hidden'}">${getDecade(ev.date)}</span>
         </div>
+    ` : '';
+
+    card.innerHTML = `
+      <span class="card-grip">⠿</span>
+      <span class="card-number">${index + 1}</span>
+      <div class="card-body">
+        <span class="card-event-name">${escapeHtml(ev.event)}</span>
+        ${hintsRowHtml}
       </div>
     `;
 
@@ -408,15 +444,17 @@
       });
     }
 
-    card.querySelector('.hint-decade-btn').addEventListener('click', (e) => {
-      e.stopPropagation();
-      if (revealedDecades.has(ev.event)) return;
-      if (!confirm(`Reveal decade? This costs ${getDecadeHintCost()} points.`)) return;
-      revealedDecades.add(ev.event);
-      card.querySelector('.hint-decade-btn').classList.add('hidden');
-      card.querySelector('.hint-dec-value').classList.remove('hidden');
-      updateScorePreview();
-    });
+    if (showHints) {
+      card.querySelector('.hint-decade-btn').addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (revealedDecades.has(ev.event)) return;
+        if (!confirm(`Reveal decade? This costs ${getDecadeHintCost()} points.`)) return;
+        revealedDecades.add(ev.event);
+        card.querySelector('.hint-decade-btn').classList.add('hidden');
+        card.querySelector('.hint-dec-value').classList.remove('hidden');
+        updateScorePreview();
+      });
+    }
 
     card.addEventListener('dragstart', onDragStart);
     card.addEventListener('dragend', onDragEnd);
@@ -1006,11 +1044,20 @@
       localStorage.setItem('orderly-seen', '1');
     }
 
-    currentMode = getModeFromHash();
+    const parsed = parseHash();
+    currentView = parsed.view;
+    currentMode = parsed.mode;
+    currentRankCategory = parsed.rankCategory;
+    document.getElementById('view-time').classList.toggle('active', currentView === 'time');
+    document.getElementById('view-rankings').classList.toggle('active', currentView === 'rankings');
+    document.body.classList.toggle('rankings-view', currentView === 'rankings');
     filterEventsByMode();
     renderModeSelector();
-    startPuzzle();
+    startActivePuzzle();
     attachListDropFallback();
+
+    document.getElementById('view-time').addEventListener('click', () => switchView('time'));
+    document.getElementById('view-rankings').addEventListener('click', () => switchView('rankings'));
 
     document.getElementById('add-event-btn').addEventListener('click', addEvent);
 
@@ -1020,8 +1067,11 @@
     });
 
     window.addEventListener('hashchange', () => {
-      const newMode = getModeFromHash();
-      if (newMode !== currentMode) switchMode(newMode);
+      const p = parseHash();
+      if (p.view !== currentView) { switchView(p.view); return; }
+      const targetId = p.view === 'rankings' ? p.rankCategory : p.mode;
+      const activeId = p.view === 'rankings' ? currentRankCategory : currentMode;
+      if (targetId !== activeId) selectEntry(targetId);
     });
   }
 
