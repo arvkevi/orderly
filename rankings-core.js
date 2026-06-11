@@ -70,5 +70,17 @@
     return a;
   }
 
-  return { formatValue, mulberry32, hashString, seededShuffle };
+  function pickDailyTopic(topics, category, dateStr) {
+    const inCat = topics.filter(t => t.category === category);
+    if (inCat.length === 0) return null;
+    const rng = mulberry32(hashString(dateStr + '-rank-' + category));
+    return seededShuffle(inCat, rng)[0];
+  }
+
+  function pickDailyItems(topic, dateStr, count) {
+    const rng = mulberry32(hashString(dateStr + '-rank-' + topic.category + '-items'));
+    return seededShuffle(topic.items, rng).slice(0, count);
+  }
+
+  return { formatValue, mulberry32, hashString, seededShuffle, pickDailyTopic, pickDailyItems };
 });

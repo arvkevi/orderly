@@ -39,3 +39,45 @@ test('seededShuffle is a permutation and deterministic for a fixed rng seed', ()
   assert.deepEqual([...out1].sort((a, b) => a - b), src);
   assert.deepEqual(src, [1, 2, 3, 4, 5]); // input not mutated
 });
+
+const { pickDailyTopic, pickDailyItems } = require('../rankings-core.js');
+
+const TOPICS = [
+  { id: 'geo-area', category: 'geography', title: 'Countries by area',
+    axis: { lowLabel: 'SMALLEST', highLabel: 'LARGEST', unit: 'km²', format: 'comma' },
+    items: Array.from({ length: 20 }, (_, i) => ({ name: 'C' + i, value: i + 1 })) },
+  { id: 'geo-mtn', category: 'geography', title: 'Mountains by height',
+    axis: { lowLabel: 'LOWEST', highLabel: 'HIGHEST', unit: 'm', format: 'comma' },
+    items: Array.from({ length: 20 }, (_, i) => ({ name: 'M' + i, value: i + 100 })) },
+  { id: 'sport-x', category: 'sports', title: '2023 leaders',
+    axis: { lowLabel: 'FEWEST', highLabel: 'MOST', unit: 'PPG', format: 'decimal' },
+    items: Array.from({ length: 20 }, (_, i) => ({ name: 'P' + i, value: i + 0.5 })) },
+];
+
+test('pickDailyTopic returns a topic from the requested category, deterministically', () => {
+  const t1 = pickDailyTopic(TOPICS, 'geography', '2026-06-10');
+  const t2 = pickDailyTopic(TOPICS, 'geography', '2026-06-10');
+  assert.equal(t1.id, t2.id);
+  assert.equal(t1.category, 'geography');
+  assert.equal(pickDailyTopic(TOPICS, 'sports', '2026-06-10').id, 'sport-x');
+});
+
+test('pickDailyTopic returns null when category has no topics', () => {
+  assert.equal(pickDailyTopic(TOPICS, 'language', '2026-06-10'), null);
+});
+
+test('pickDailyItems returns N items from the topic pool, deterministically', () => {
+  const topic = TOPICS[0];
+  const a = pickDailyItems(topic, '2026-06-10', 10);
+  const b = pickDailyItems(topic, '2026-06-10', 10);
+  assert.equal(a.length, 10);
+  assert.deepEqual(a, b);
+  a.forEach(it => assert.ok(topic.items.some(p => p.name === it.name)));
+});
+
+test('pickDailyItems gives different sets on different dates (usually)', () => {
+  const topic = TOPICS[0];
+  const a = pickDailyItems(topic, '2026-06-10', 10).map(i => i.name).join();
+  const b = pickDailyItems(topic, '2026-07-15', 10).map(i => i.name).join();
+  assert.notEqual(a, b);
+});
