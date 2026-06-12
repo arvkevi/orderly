@@ -1,0 +1,4440 @@
+[
+  {
+    "id": "countries-by-area",
+    "category": "geography",
+    "title": "Countries by land area",
+    "axis": {
+      "lowLabel": "SMALLEST",
+      "highLabel": "LARGEST",
+      "unit": "km²",
+      "format": "comma"
+    },
+    "items": [
+      {
+        "name": "Bolivia",
+        "value": 1098581
+      },
+      {
+        "name": "Ethiopia",
+        "value": 1104300
+      },
+      {
+        "name": "Colombia",
+        "value": 1138910
+      },
+      {
+        "name": "South Africa",
+        "value": 1219090
+      },
+      {
+        "name": "Mali",
+        "value": 1240192
+      },
+      {
+        "name": "Angola",
+        "value": 1246700
+      },
+      {
+        "name": "Niger",
+        "value": 1267000
+      },
+      {
+        "name": "Chad",
+        "value": 1284000
+      },
+      {
+        "name": "Peru",
+        "value": 1285216
+      },
+      {
+        "name": "Mongolia",
+        "value": 1564116
+      },
+      {
+        "name": "Iran",
+        "value": 1648195
+      },
+      {
+        "name": "Libya",
+        "value": 1759540
+      },
+      {
+        "name": "Sudan",
+        "value": 1861484
+      },
+      {
+        "name": "Indonesia",
+        "value": 1904569
+      },
+      {
+        "name": "Mexico",
+        "value": 1964375
+      },
+      {
+        "name": "Saudi Arabia",
+        "value": 2149690
+      },
+      {
+        "name": "DR Congo",
+        "value": 2344858
+      },
+      {
+        "name": "Algeria",
+        "value": 2381740
+      },
+      {
+        "name": "Kazakhstan",
+        "value": 2724900
+      },
+      {
+        "name": "Argentina",
+        "value": 2780400
+      },
+      {
+        "name": "India",
+        "value": 3287263
+      },
+      {
+        "name": "Australia",
+        "value": 7692024
+      },
+      {
+        "name": "Brazil",
+        "value": 8515767
+      },
+      {
+        "name": "China",
+        "value": 9596960
+      },
+      {
+        "name": "USA",
+        "value": 9833517
+      },
+      {
+        "name": "Canada",
+        "value": 9984670
+      },
+      {
+        "name": "Russia",
+        "value": 17098242
+      }
+    ]
+  },
+  {
+    "id": "mountains-by-height",
+    "category": "geography",
+    "title": "Mountains by height",
+    "axis": {
+      "lowLabel": "LOWEST",
+      "highLabel": "HIGHEST",
+      "unit": "m",
+      "format": "comma"
+    },
+    "items": [
+      {
+        "name": "Mont Blanc",
+        "value": 4808
+      },
+      {
+        "name": "Puncak Jaya",
+        "value": 4884
+      },
+      {
+        "name": "Vinson Massif",
+        "value": 4892
+      },
+      {
+        "name": "Elbrus",
+        "value": 5642
+      },
+      {
+        "name": "Kilimanjaro",
+        "value": 5895
+      },
+      {
+        "name": "Denali",
+        "value": 6190
+      },
+      {
+        "name": "Aconcagua",
+        "value": 6961
+      },
+      {
+        "name": "Masherbrum",
+        "value": 7821
+      },
+      {
+        "name": "Khunyang Chhish",
+        "value": 7852
+      },
+      {
+        "name": "Distaghil Sar",
+        "value": 7884
+      },
+      {
+        "name": "Gyachung Kang",
+        "value": 7952
+      },
+      {
+        "name": "Shishapangma",
+        "value": 8027
+      },
+      {
+        "name": "Gasherbrum II",
+        "value": 8035
+      },
+      {
+        "name": "Broad Peak",
+        "value": 8051
+      },
+      {
+        "name": "Gasherbrum I",
+        "value": 8080
+      },
+      {
+        "name": "Annapurna I",
+        "value": 8091
+      },
+      {
+        "name": "Nanga Parbat",
+        "value": 8126
+      },
+      {
+        "name": "Manaslu",
+        "value": 8163
+      },
+      {
+        "name": "Dhaulagiri I",
+        "value": 8167
+      },
+      {
+        "name": "Cho Oyu",
+        "value": 8201
+      },
+      {
+        "name": "Makalu",
+        "value": 8485
+      },
+      {
+        "name": "Lhotse",
+        "value": 8516
+      },
+      {
+        "name": "Kangchenjunga",
+        "value": 8586
+      },
+      {
+        "name": "K2",
+        "value": 8611
+      },
+      {
+        "name": "Everest",
+        "value": 8849
+      }
+    ]
+  },
+  {
+    "id": "rivers-by-length",
+    "category": "geography",
+    "title": "Rivers by length",
+    "axis": {
+      "lowLabel": "SHORTEST",
+      "highLabel": "LONGEST",
+      "unit": "km",
+      "format": "comma"
+    },
+    "items": [
+      {
+        "name": "Murray",
+        "value": 2375
+      },
+      {
+        "name": "Ganges",
+        "value": 2525
+      },
+      {
+        "name": "Zambezi",
+        "value": 2574
+      },
+      {
+        "name": "Danube",
+        "value": 2860
+      },
+      {
+        "name": "São Francisco",
+        "value": 2914
+      },
+      {
+        "name": "Yukon",
+        "value": 3185
+      },
+      {
+        "name": "Volga",
+        "value": 3531
+      },
+      {
+        "name": "Indus",
+        "value": 3610
+      },
+      {
+        "name": "Tocantins",
+        "value": 3650
+      },
+      {
+        "name": "Niger",
+        "value": 4200
+      },
+      {
+        "name": "Mackenzie",
+        "value": 4241
+      },
+      {
+        "name": "Mekong",
+        "value": 4350
+      },
+      {
+        "name": "Lena",
+        "value": 4400
+      },
+      {
+        "name": "Amur",
+        "value": 4444
+      },
+      {
+        "name": "Congo",
+        "value": 4700
+      },
+      {
+        "name": "Huang He",
+        "value": 5464
+      },
+      {
+        "name": "Yenisei",
+        "value": 5539
+      },
+      {
+        "name": "Ob-Irtysh",
+        "value": 5568
+      },
+      {
+        "name": "Mississippi",
+        "value": 6275
+      },
+      {
+        "name": "Yangtze",
+        "value": 6300
+      },
+      {
+        "name": "Amazon",
+        "value": 6400
+      },
+      {
+        "name": "Nile",
+        "value": 6650
+      }
+    ]
+  },
+  {
+    "id": "lakes-by-area",
+    "category": "geography",
+    "title": "Lakes by surface area",
+    "axis": {
+      "lowLabel": "SMALLEST",
+      "highLabel": "LARGEST",
+      "unit": "km²",
+      "format": "comma"
+    },
+    "items": [
+      {
+        "name": "Lake Turkana",
+        "value": 6405
+      },
+      {
+        "name": "Lake Athabasca",
+        "value": 7935
+      },
+      {
+        "name": "Lake Titicaca",
+        "value": 8372
+      },
+      {
+        "name": "Lake Volta",
+        "value": 8502
+      },
+      {
+        "name": "Lake Onega",
+        "value": 9720
+      },
+      {
+        "name": "Lake Balkhash",
+        "value": 15500
+      },
+      {
+        "name": "Lake Ladoga",
+        "value": 17600
+      },
+      {
+        "name": "Lake Ontario",
+        "value": 18960
+      },
+      {
+        "name": "Lake Winnipeg",
+        "value": 24387
+      },
+      {
+        "name": "Lake Erie",
+        "value": 25667
+      },
+      {
+        "name": "Great Slave Lake",
+        "value": 28568
+      },
+      {
+        "name": "Lake Malawi",
+        "value": 29604
+      },
+      {
+        "name": "Great Bear Lake",
+        "value": 31328
+      },
+      {
+        "name": "Lake Baikal",
+        "value": 31500
+      },
+      {
+        "name": "Lake Tanganyika",
+        "value": 32900
+      },
+      {
+        "name": "Lake Michigan",
+        "value": 57757
+      },
+      {
+        "name": "Lake Huron",
+        "value": 59570
+      },
+      {
+        "name": "Lake Victoria",
+        "value": 68870
+      },
+      {
+        "name": "Lake Superior",
+        "value": 82100
+      },
+      {
+        "name": "Caspian Sea",
+        "value": 386400
+      }
+    ]
+  },
+  {
+    "id": "animals-by-top-speed",
+    "category": "nature",
+    "title": "Animals by top speed",
+    "axis": {
+      "lowLabel": "SLOWEST",
+      "highLabel": "FASTEST",
+      "unit": "mph",
+      "format": "comma"
+    },
+    "items": [
+      {
+        "name": "Tortoise",
+        "value": 1
+      },
+      {
+        "name": "Koala",
+        "value": 6
+      },
+      {
+        "name": "Elephant",
+        "value": 15
+      },
+      {
+        "name": "Warthog",
+        "value": 30
+      },
+      {
+        "name": "Grizzly Bear",
+        "value": 35
+      },
+      {
+        "name": "Cape Buffalo",
+        "value": 37
+      },
+      {
+        "name": "Hyena",
+        "value": 40
+      },
+      {
+        "name": "Zebra",
+        "value": 41
+      },
+      {
+        "name": "Coyote",
+        "value": 43
+      },
+      {
+        "name": "Ostrich",
+        "value": 44
+      },
+      {
+        "name": "Kangaroo",
+        "value": 45
+      },
+      {
+        "name": "Elk",
+        "value": 46
+      },
+      {
+        "name": "Mule Deer",
+        "value": 47
+      },
+      {
+        "name": "African Wild Dog",
+        "value": 48
+      },
+      {
+        "name": "Blackbuck",
+        "value": 50
+      },
+      {
+        "name": "Wildebeest",
+        "value": 51
+      },
+      {
+        "name": "Lion",
+        "value": 52
+      },
+      {
+        "name": "Thomson's Gazelle",
+        "value": 53
+      },
+      {
+        "name": "Horse",
+        "value": 55
+      },
+      {
+        "name": "Springbok",
+        "value": 57
+      },
+      {
+        "name": "Pronghorn",
+        "value": 62
+      },
+      {
+        "name": "Cheetah",
+        "value": 70
+      }
+    ]
+  },
+  {
+    "id": "heaviest-land-animals",
+    "category": "nature",
+    "title": "Land animals by maximum weight",
+    "axis": {
+      "lowLabel": "LIGHTEST",
+      "highLabel": "HEAVIEST",
+      "unit": "kg",
+      "format": "comma"
+    },
+    "items": [
+      {
+        "name": "Gorilla",
+        "value": 270
+      },
+      {
+        "name": "Polar Bear",
+        "value": 600
+      },
+      {
+        "name": "Kodiak Bear",
+        "value": 680
+      },
+      {
+        "name": "Moose",
+        "value": 700
+      },
+      {
+        "name": "Sumatran Rhinoceros",
+        "value": 850
+      },
+      {
+        "name": "Cape Buffalo",
+        "value": 910
+      },
+      {
+        "name": "Eland",
+        "value": 940
+      },
+      {
+        "name": "Saltwater Crocodile",
+        "value": 1000
+      },
+      {
+        "name": "Giraffe",
+        "value": 1190
+      },
+      {
+        "name": "Water Buffalo",
+        "value": 1200
+      },
+      {
+        "name": "American Bison",
+        "value": 1270
+      },
+      {
+        "name": "Black Rhinoceros",
+        "value": 1400
+      },
+      {
+        "name": "Gaur",
+        "value": 1500
+      },
+      {
+        "name": "Indian Rhinoceros",
+        "value": 2200
+      },
+      {
+        "name": "Javan Rhinoceros",
+        "value": 2300
+      },
+      {
+        "name": "White Rhinoceros",
+        "value": 3600
+      },
+      {
+        "name": "Hippopotamus",
+        "value": 4500
+      },
+      {
+        "name": "African Forest Elephant",
+        "value": 6000
+      },
+      {
+        "name": "Asian Elephant",
+        "value": 8000
+      },
+      {
+        "name": "African Bush Elephant",
+        "value": 10100
+      }
+    ]
+  },
+  {
+    "id": "mammal-gestation-periods",
+    "category": "nature",
+    "title": "Mammals by gestation period",
+    "axis": {
+      "lowLabel": "SHORTEST",
+      "highLabel": "LONGEST",
+      "unit": "days",
+      "format": "comma"
+    },
+    "items": [
+      {
+        "name": "Hamster",
+        "value": 16
+      },
+      {
+        "name": "Mouse",
+        "value": 20
+      },
+      {
+        "name": "Rabbit",
+        "value": 31
+      },
+      {
+        "name": "Kangaroo",
+        "value": 42
+      },
+      {
+        "name": "Fox",
+        "value": 52
+      },
+      {
+        "name": "Cat",
+        "value": 63
+      },
+      {
+        "name": "Dog",
+        "value": 64
+      },
+      {
+        "name": "Wolf",
+        "value": 65
+      },
+      {
+        "name": "Lion",
+        "value": 108
+      },
+      {
+        "name": "Pig",
+        "value": 114
+      },
+      {
+        "name": "Sheep",
+        "value": 148
+      },
+      {
+        "name": "Deer",
+        "value": 201
+      },
+      {
+        "name": "Black Bear",
+        "value": 220
+      },
+      {
+        "name": "Chimpanzee",
+        "value": 237
+      },
+      {
+        "name": "Gorilla",
+        "value": 258
+      },
+      {
+        "name": "Cow",
+        "value": 283
+      },
+      {
+        "name": "Horse",
+        "value": 336
+      },
+      {
+        "name": "Zebra",
+        "value": 375
+      },
+      {
+        "name": "Giraffe",
+        "value": 435
+      },
+      {
+        "name": "Sperm Whale",
+        "value": 480
+      },
+      {
+        "name": "African Elephant",
+        "value": 660
+      }
+    ]
+  },
+  {
+    "id": "peppers-by-scoville",
+    "category": "nature",
+    "title": "Chili peppers by Scoville heat",
+    "axis": {
+      "lowLabel": "MILDEST",
+      "highLabel": "HOTTEST",
+      "unit": "SHU",
+      "format": "compact"
+    },
+    "items": [
+      {
+        "name": "Bell Pepper",
+        "value": 0
+      },
+      {
+        "name": "Banana Pepper",
+        "value": 500
+      },
+      {
+        "name": "Poblano",
+        "value": 1500
+      },
+      {
+        "name": "Anaheim",
+        "value": 2000
+      },
+      {
+        "name": "Jalapeño",
+        "value": 5000
+      },
+      {
+        "name": "Hungarian Wax",
+        "value": 8000
+      },
+      {
+        "name": "Serrano",
+        "value": 15000
+      },
+      {
+        "name": "Tabasco",
+        "value": 40000
+      },
+      {
+        "name": "Cayenne",
+        "value": 50000
+      },
+      {
+        "name": "Pequin",
+        "value": 55000
+      },
+      {
+        "name": "Thai Bird's Eye",
+        "value": 75000
+      },
+      {
+        "name": "Habanero",
+        "value": 150000
+      },
+      {
+        "name": "Scotch Bonnet",
+        "value": 200000
+      },
+      {
+        "name": "Datil",
+        "value": 250000
+      },
+      {
+        "name": "Ghost Pepper",
+        "value": 1041427
+      },
+      {
+        "name": "Naga Viper",
+        "value": 1382118
+      },
+      {
+        "name": "7 Pot Douglah",
+        "value": 1400000
+      },
+      {
+        "name": "Trinidad Moruga Scorpion",
+        "value": 1600000
+      },
+      {
+        "name": "Carolina Reaper",
+        "value": 1641183
+      },
+      {
+        "name": "Chocolate Bhutlah",
+        "value": 2100000
+      },
+      {
+        "name": "Pepper X",
+        "value": 2693000
+      }
+    ]
+  },
+  {
+    "id": "us-cities-by-population",
+    "category": "economics",
+    "title": "US cities by population",
+    "axis": {
+      "lowLabel": "FEWEST",
+      "highLabel": "MOST",
+      "unit": "people",
+      "format": "compact"
+    },
+    "items": [
+      {
+        "name": "Boston",
+        "value": 672973
+      },
+      {
+        "name": "Las Vegas",
+        "value": 679817
+      },
+      {
+        "name": "El Paso",
+        "value": 683012
+      },
+      {
+        "name": "Washington DC",
+        "value": 693645
+      },
+      {
+        "name": "Oklahoma City",
+        "value": 719849
+      },
+      {
+        "name": "Nashville",
+        "value": 721074
+      },
+      {
+        "name": "Denver",
+        "value": 740613
+      },
+      {
+        "name": "Seattle",
+        "value": 784777
+      },
+      {
+        "name": "San Francisco",
+        "value": 826079
+      },
+      {
+        "name": "Indianapolis",
+        "value": 901116
+      },
+      {
+        "name": "Columbus",
+        "value": 938396
+      },
+      {
+        "name": "Charlotte",
+        "value": 964784
+      },
+      {
+        "name": "San Jose",
+        "value": 989814
+      },
+      {
+        "name": "Austin",
+        "value": 1002632
+      },
+      {
+        "name": "Jacksonville",
+        "value": 1017689
+      },
+      {
+        "name": "Fort Worth",
+        "value": 1028117
+      },
+      {
+        "name": "Dallas",
+        "value": 1329491
+      },
+      {
+        "name": "San Diego",
+        "value": 1406106
+      },
+      {
+        "name": "San Antonio",
+        "value": 1548422
+      },
+      {
+        "name": "Philadelphia",
+        "value": 1574281
+      },
+      {
+        "name": "Phoenix",
+        "value": 1665481
+      },
+      {
+        "name": "Houston",
+        "value": 2397315
+      },
+      {
+        "name": "Chicago",
+        "value": 2731585
+      },
+      {
+        "name": "Los Angeles",
+        "value": 3869089
+      },
+      {
+        "name": "New York",
+        "value": 8584629
+      }
+    ]
+  },
+  {
+    "id": "countries-by-population-2024",
+    "category": "economics",
+    "title": "Countries by population (2024)",
+    "axis": {
+      "lowLabel": "FEWEST",
+      "highLabel": "MOST",
+      "unit": "people",
+      "format": "compact"
+    },
+    "items": [
+      {
+        "name": "Italy",
+        "value": 59342867
+      },
+      {
+        "name": "South Africa",
+        "value": 64007187
+      },
+      {
+        "name": "France",
+        "value": 66548530
+      },
+      {
+        "name": "Tanzania",
+        "value": 68560157
+      },
+      {
+        "name": "UK",
+        "value": 69138192
+      },
+      {
+        "name": "Thailand",
+        "value": 71668011
+      },
+      {
+        "name": "Germany",
+        "value": 84552242
+      },
+      {
+        "name": "Turkey",
+        "value": 87473805
+      },
+      {
+        "name": "Iran",
+        "value": 91567738
+      },
+      {
+        "name": "Vietnam",
+        "value": 100987686
+      },
+      {
+        "name": "DR Congo",
+        "value": 109276265
+      },
+      {
+        "name": "Philippines",
+        "value": 115843670
+      },
+      {
+        "name": "Egypt",
+        "value": 116538258
+      },
+      {
+        "name": "Japan",
+        "value": 123753041
+      },
+      {
+        "name": "Mexico",
+        "value": 130861007
+      },
+      {
+        "name": "Ethiopia",
+        "value": 132059767
+      },
+      {
+        "name": "Russia",
+        "value": 144820423
+      },
+      {
+        "name": "Bangladesh",
+        "value": 173562364
+      },
+      {
+        "name": "Brazil",
+        "value": 211998574
+      },
+      {
+        "name": "Nigeria",
+        "value": 232679478
+      },
+      {
+        "name": "Pakistan",
+        "value": 251269164
+      },
+      {
+        "name": "Indonesia",
+        "value": 283487931
+      },
+      {
+        "name": "USA",
+        "value": 345426571
+      },
+      {
+        "name": "China",
+        "value": 1419321278
+      },
+      {
+        "name": "India",
+        "value": 1450935791
+      }
+    ]
+  },
+  {
+    "id": "countries-by-gdp-2024",
+    "category": "economics",
+    "title": "Countries by GDP (2024, nominal USD)",
+    "axis": {
+      "lowLabel": "SMALLEST",
+      "highLabel": "LARGEST",
+      "unit": "USD",
+      "format": "compact"
+    },
+    "items": [
+      {
+        "name": "Argentina",
+        "value": 681000000000
+      },
+      {
+        "name": "Belgium",
+        "value": 725000000000
+      },
+      {
+        "name": "Sweden",
+        "value": 760000000000
+      },
+      {
+        "name": "Poland",
+        "value": 920000000000
+      },
+      {
+        "name": "Switzerland",
+        "value": 980000000000
+      },
+      {
+        "name": "Saudi Arabia",
+        "value": 1110000000000
+      },
+      {
+        "name": "Netherlands",
+        "value": 1170000000000
+      },
+      {
+        "name": "Turkey",
+        "value": 1320000000000
+      },
+      {
+        "name": "Indonesia",
+        "value": 1540000000000
+      },
+      {
+        "name": "Spain",
+        "value": 1690000000000
+      },
+      {
+        "name": "Australia",
+        "value": 1700000000000
+      },
+      {
+        "name": "South Korea",
+        "value": 1780000000000
+      },
+      {
+        "name": "Russia",
+        "value": 1920000000000
+      },
+      {
+        "name": "Mexico",
+        "value": 1990000000000
+      },
+      {
+        "name": "Canada",
+        "value": 2240000000000
+      },
+      {
+        "name": "Brazil",
+        "value": 2270000000000
+      },
+      {
+        "name": "Italy",
+        "value": 2550000000000
+      },
+      {
+        "name": "France",
+        "value": 3180000000000
+      },
+      {
+        "name": "UK",
+        "value": 3590000000000
+      },
+      {
+        "name": "India",
+        "value": 3890000000000
+      },
+      {
+        "name": "Japan",
+        "value": 4290000000000
+      },
+      {
+        "name": "Germany",
+        "value": 4730000000000
+      },
+      {
+        "name": "China",
+        "value": 18270000000000
+      },
+      {
+        "name": "USA",
+        "value": 29170000000000
+      }
+    ]
+  },
+  {
+    "id": "largest-companies-by-revenue-2025",
+    "category": "economics",
+    "title": "Largest companies by revenue (FY2025, Fortune 500)",
+    "axis": {
+      "lowLabel": "LOWEST",
+      "highLabel": "HIGHEST",
+      "unit": "$B",
+      "format": "decimal"
+    },
+    "items": [
+      {
+        "name": "Cardinal Health",
+        "value": 226.83
+      },
+      {
+        "name": "Glencore",
+        "value": 230.94
+      },
+      {
+        "name": "Trafigura",
+        "value": 243.2
+      },
+      {
+        "name": "Microsoft",
+        "value": 245.12
+      },
+      {
+        "name": "Cigna",
+        "value": 247.12
+      },
+      {
+        "name": "Costco",
+        "value": 254.45
+      },
+      {
+        "name": "JPMorgan Chase",
+        "value": 278.91
+      },
+      {
+        "name": "Shell",
+        "value": 289.03
+      },
+      {
+        "name": "Cencora",
+        "value": 293.96
+      },
+      {
+        "name": "China State Construction",
+        "value": 304.12
+      },
+      {
+        "name": "Toyota",
+        "value": 315.11
+      },
+      {
+        "name": "ExxonMobil",
+        "value": 349.58
+      },
+      {
+        "name": "Alphabet",
+        "value": 350.02
+      },
+      {
+        "name": "Volkswagen",
+        "value": 351.09
+      },
+      {
+        "name": "McKesson",
+        "value": 359.05
+      },
+      {
+        "name": "Berkshire Hathaway",
+        "value": 371.43
+      },
+      {
+        "name": "CVS Health",
+        "value": 372.81
+      },
+      {
+        "name": "Apple",
+        "value": 391.04
+      },
+      {
+        "name": "UnitedHealth",
+        "value": 400.28
+      },
+      {
+        "name": "Sinopec",
+        "value": 407.49
+      },
+      {
+        "name": "China National Petroleum",
+        "value": 412.65
+      },
+      {
+        "name": "Saudi Aramco",
+        "value": 480.19
+      },
+      {
+        "name": "State Grid",
+        "value": 548.41
+      },
+      {
+        "name": "Walmart",
+        "value": 713.16
+      },
+      {
+        "name": "Amazon",
+        "value": 716.9
+      }
+    ]
+  },
+  {
+    "id": "words-by-scrabble-score",
+    "category": "language",
+    "title": "Words by Scrabble tile score",
+    "axis": {
+      "lowLabel": "LOWEST",
+      "highLabel": "HIGHEST",
+      "unit": "points",
+      "format": "comma"
+    },
+    "items": [
+      {
+        "name": "ERA",
+        "value": 3
+      },
+      {
+        "name": "TONE",
+        "value": 4
+      },
+      {
+        "name": "TRAIN",
+        "value": 5
+      },
+      {
+        "name": "GOLD",
+        "value": 6
+      },
+      {
+        "name": "BIRD",
+        "value": 7
+      },
+      {
+        "name": "CLUB",
+        "value": 8
+      },
+      {
+        "name": "DAMP",
+        "value": 9
+      },
+      {
+        "name": "CAMP",
+        "value": 10
+      },
+      {
+        "name": "DUCK",
+        "value": 11
+      },
+      {
+        "name": "BACK",
+        "value": 12
+      },
+      {
+        "name": "BLACK",
+        "value": 13
+      },
+      {
+        "name": "HEAVY",
+        "value": 14
+      },
+      {
+        "name": "ZINC",
+        "value": 15
+      },
+      {
+        "name": "ZANY",
+        "value": 16
+      },
+      {
+        "name": "WAXY",
+        "value": 17
+      },
+      {
+        "name": "JINX",
+        "value": 18
+      },
+      {
+        "name": "JUNKY",
+        "value": 19
+      },
+      {
+        "name": "QUIFF",
+        "value": 20
+      },
+      {
+        "name": "JIFFY",
+        "value": 21
+      },
+      {
+        "name": "QUIZ",
+        "value": 22
+      },
+      {
+        "name": "BUZZ",
+        "value": 24
+      },
+      {
+        "name": "FIZZ",
+        "value": 25
+      },
+      {
+        "name": "JAZZ",
+        "value": 29
+      },
+      {
+        "name": "JAZZY",
+        "value": 33
+      }
+    ]
+  },
+  {
+    "id": "languages-by-total-speakers",
+    "category": "language",
+    "title": "Languages by total speakers",
+    "axis": {
+      "lowLabel": "FEWEST",
+      "highLabel": "MOST",
+      "unit": "speakers",
+      "format": "compact"
+    },
+    "items": [
+      {
+        "name": "Swahili",
+        "value": 80000000
+      },
+      {
+        "name": "Korean",
+        "value": 82000000
+      },
+      {
+        "name": "Vietnamese",
+        "value": 86000000
+      },
+      {
+        "name": "Tamil",
+        "value": 87000000
+      },
+      {
+        "name": "Turkish",
+        "value": 90000000
+      },
+      {
+        "name": "Telugu",
+        "value": 96000000
+      },
+      {
+        "name": "Marathi",
+        "value": 99000000
+      },
+      {
+        "name": "Japanese",
+        "value": 125000000
+      },
+      {
+        "name": "German",
+        "value": 135000000
+      },
+      {
+        "name": "Indonesian",
+        "value": 200000000
+      },
+      {
+        "name": "Urdu",
+        "value": 232000000
+      },
+      {
+        "name": "Portuguese",
+        "value": 236000000
+      },
+      {
+        "name": "Russian",
+        "value": 258000000
+      },
+      {
+        "name": "Bengali",
+        "value": 265000000
+      },
+      {
+        "name": "Arabic",
+        "value": 274000000
+      },
+      {
+        "name": "French",
+        "value": 280000000
+      },
+      {
+        "name": "Spanish",
+        "value": 534000000
+      },
+      {
+        "name": "Hindi",
+        "value": 616000000
+      },
+      {
+        "name": "Mandarin Chinese",
+        "value": 1120000000
+      },
+      {
+        "name": "English",
+        "value": 1500000000
+      }
+    ]
+  },
+  {
+    "id": "best-selling-books",
+    "category": "language",
+    "title": "Best-selling books of all time",
+    "axis": {
+      "lowLabel": "FEWEST",
+      "highLabel": "MOST",
+      "unit": "copies",
+      "format": "compact"
+    },
+    "items": [
+      {
+        "name": "Twenty Thousand Leagues",
+        "value": 20000000
+      },
+      {
+        "name": "The Great Gatsby",
+        "value": 25000000
+      },
+      {
+        "name": "The Hunger Games",
+        "value": 28000000
+      },
+      {
+        "name": "Animal Farm",
+        "value": 30000000
+      },
+      {
+        "name": "The Diary of a Young Girl",
+        "value": 35000000
+      },
+      {
+        "name": "Charlotte's Web",
+        "value": 40000000
+      },
+      {
+        "name": "Harry Potter & Deathly Hallows",
+        "value": 44000000
+      },
+      {
+        "name": "Black Beauty",
+        "value": 50000000
+      },
+      {
+        "name": "Harry Potter & Order of Phoenix",
+        "value": 55000000
+      },
+      {
+        "name": "Harry Potter & Chamber of Secrets",
+        "value": 60000000
+      },
+      {
+        "name": "The Alchemist",
+        "value": 65000000
+      },
+      {
+        "name": "Think and Grow Rich",
+        "value": 70000000
+      },
+      {
+        "name": "The Da Vinci Code",
+        "value": 80000000
+      },
+      {
+        "name": "The Lion, the Witch and the Wardrobe",
+        "value": 85000000
+      },
+      {
+        "name": "The Hobbit",
+        "value": 100000000
+      },
+      {
+        "name": "Harry Potter & Philosopher's Stone",
+        "value": 120000000
+      },
+      {
+        "name": "The Little Prince",
+        "value": 142000000
+      },
+      {
+        "name": "The Lord of the Rings",
+        "value": 150000000
+      },
+      {
+        "name": "A Tale of Two Cities",
+        "value": 200000000
+      },
+      {
+        "name": "Don Quixote",
+        "value": 500000000
+      }
+    ]
+  },
+  {
+    "id": "best-selling-albums",
+    "category": "language",
+    "title": "Best-selling music albums of all time",
+    "axis": {
+      "lowLabel": "FEWEST",
+      "highLabel": "MOST",
+      "unit": "copies",
+      "format": "compact"
+    },
+    "items": [
+      {
+        "name": "Purple Rain",
+        "value": 13000000
+      },
+      {
+        "name": "Born in the U.S.A.",
+        "value": 15000000
+      },
+      {
+        "name": "Appetite for Destruction",
+        "value": 18000000
+      },
+      {
+        "name": "Abbey Road",
+        "value": 20000000
+      },
+      {
+        "name": "Slippery When Wet",
+        "value": 22000000
+      },
+      {
+        "name": "The Joshua Tree",
+        "value": 25000000
+      },
+      {
+        "name": "Bat Out of Hell",
+        "value": 28000000
+      },
+      {
+        "name": "Nevermind",
+        "value": 30000000
+      },
+      {
+        "name": "Hotel California",
+        "value": 32000000
+      },
+      {
+        "name": "21",
+        "value": 34000000
+      },
+      {
+        "name": "Bad",
+        "value": 35000000
+      },
+      {
+        "name": "Led Zeppelin IV",
+        "value": 37000000
+      },
+      {
+        "name": "Saturday Night Fever",
+        "value": 38000000
+      },
+      {
+        "name": "Rumours",
+        "value": 40000000
+      },
+      {
+        "name": "Eagles Greatest Hits",
+        "value": 42000000
+      },
+      {
+        "name": "The Bodyguard",
+        "value": 44000000
+      },
+      {
+        "name": "The Dark Side of the Moon",
+        "value": 45000000
+      },
+      {
+        "name": "Come On Over",
+        "value": 41000000
+      },
+      {
+        "name": "Back in Black",
+        "value": 50000000
+      },
+      {
+        "name": "Thriller",
+        "value": 70000000
+      }
+    ]
+  },
+  {
+    "id": "broadway-shows-by-performances",
+    "category": "language",
+    "title": "Longest-running Broadway shows",
+    "axis": {
+      "lowLabel": "FEWEST",
+      "highLabel": "MOST",
+      "unit": "performances",
+      "format": "comma"
+    },
+    "items": [
+      {
+        "name": "Life with Father",
+        "value": 3224
+      },
+      {
+        "name": "Fiddler on the Roof",
+        "value": 3242
+      },
+      {
+        "name": "Grease",
+        "value": 3388
+      },
+      {
+        "name": "42nd Street",
+        "value": 3486
+      },
+      {
+        "name": "Hamilton",
+        "value": 3869
+      },
+      {
+        "name": "Miss Saigon",
+        "value": 4092
+      },
+      {
+        "name": "Aladdin",
+        "value": 4429
+      },
+      {
+        "name": "Jersey Boys",
+        "value": 4642
+      },
+      {
+        "name": "Rent",
+        "value": 5123
+      },
+      {
+        "name": "Beauty and the Beast",
+        "value": 5461
+      },
+      {
+        "name": "The Book of Mormon",
+        "value": 5627
+      },
+      {
+        "name": "Mamma Mia!",
+        "value": 5758
+      },
+      {
+        "name": "Oh! Calcutta!",
+        "value": 5959
+      },
+      {
+        "name": "A Chorus Line",
+        "value": 6137
+      },
+      {
+        "name": "Les Misérables",
+        "value": 6680
+      },
+      {
+        "name": "Cats",
+        "value": 7485
+      },
+      {
+        "name": "Wicked",
+        "value": 8803
+      },
+      {
+        "name": "The Lion King",
+        "value": 11265
+      },
+      {
+        "name": "Chicago",
+        "value": 11640
+      },
+      {
+        "name": "The Phantom of the Opera",
+        "value": 13981
+      }
+    ]
+  },
+  {
+    "id": "nba-scoring-2023",
+    "category": "sports",
+    "title": "2022-23 NBA scoring leaders",
+    "axis": {
+      "lowLabel": "FEWEST",
+      "highLabel": "MOST",
+      "unit": "PPG",
+      "format": "decimal"
+    },
+    "items": [
+      {
+        "name": "Kyle Kuzma",
+        "value": 21.2
+      },
+      {
+        "name": "Desmond Bane",
+        "value": 21.5
+      },
+      {
+        "name": "Darius Garland",
+        "value": 21.6
+      },
+      {
+        "name": "Klay Thompson",
+        "value": 21.9
+      },
+      {
+        "name": "Keldon Johnson",
+        "value": 22
+      },
+      {
+        "name": "Jalen Green",
+        "value": 22.1
+      },
+      {
+        "name": "Jimmy Butler",
+        "value": 22.9
+      },
+      {
+        "name": "Kristaps Porzingis",
+        "value": 23.2
+      },
+      {
+        "name": "Jalen Brunson",
+        "value": 24
+      },
+      {
+        "name": "Pascal Siakam",
+        "value": 24.2
+      },
+      {
+        "name": "DeMar DeRozan",
+        "value": 24.5
+      },
+      {
+        "name": "Anthony Edwards",
+        "value": 24.6
+      },
+      {
+        "name": "Zach LaVine",
+        "value": 24.8
+      },
+      {
+        "name": "De'Aaron Fox",
+        "value": 25
+      },
+      {
+        "name": "Julius Randle",
+        "value": 25.1
+      },
+      {
+        "name": "Lauri Markkanen",
+        "value": 25.6
+      },
+      {
+        "name": "Trae Young",
+        "value": 26.2
+      },
+      {
+        "name": "Jaylen Brown",
+        "value": 26.6
+      },
+      {
+        "name": "Kyrie Irving",
+        "value": 27.1
+      },
+      {
+        "name": "Donovan Mitchell",
+        "value": 28.3
+      },
+      {
+        "name": "Jayson Tatum",
+        "value": 30.1
+      },
+      {
+        "name": "Giannis Antetokounmpo",
+        "value": 31.1
+      },
+      {
+        "name": "Shai Gilgeous-Alexander",
+        "value": 31.4
+      },
+      {
+        "name": "Damian Lillard",
+        "value": 32.2
+      },
+      {
+        "name": "Luka Doncic",
+        "value": 32.4
+      },
+      {
+        "name": "Joel Embiid",
+        "value": 33.1
+      }
+    ]
+  },
+  {
+    "id": "nba-career-points",
+    "category": "sports",
+    "title": "NBA all-time career points leaders",
+    "axis": {
+      "lowLabel": "FEWEST",
+      "highLabel": "MOST",
+      "unit": "points",
+      "format": "compact"
+    },
+    "items": [
+      {
+        "name": "Alex English",
+        "value": 25613
+      },
+      {
+        "name": "Vince Carter",
+        "value": 25728
+      },
+      {
+        "name": "Kevin Garnett",
+        "value": 26071
+      },
+      {
+        "name": "John Havlicek",
+        "value": 26395
+      },
+      {
+        "name": "Paul Pierce",
+        "value": 26397
+      },
+      {
+        "name": "Tim Duncan",
+        "value": 26496
+      },
+      {
+        "name": "Stephen Curry",
+        "value": 26528
+      },
+      {
+        "name": "Dominique Wilkins",
+        "value": 26668
+      },
+      {
+        "name": "Oscar Robertson",
+        "value": 26710
+      },
+      {
+        "name": "DeMar DeRozan",
+        "value": 26711
+      },
+      {
+        "name": "Hakeem Olajuwon",
+        "value": 26946
+      },
+      {
+        "name": "Russell Westbrook",
+        "value": 27176
+      },
+      {
+        "name": "Elvin Hayes",
+        "value": 27313
+      },
+      {
+        "name": "Moses Malone",
+        "value": 27409
+      },
+      {
+        "name": "Carmelo Anthony",
+        "value": 28289
+      },
+      {
+        "name": "Shaquille O'Neal",
+        "value": 28596
+      },
+      {
+        "name": "James Harden",
+        "value": 29339
+      },
+      {
+        "name": "Wilt Chamberlain",
+        "value": 31419
+      },
+      {
+        "name": "Dirk Nowitzki",
+        "value": 31560
+      },
+      {
+        "name": "Michael Jordan",
+        "value": 32292
+      },
+      {
+        "name": "Kevin Durant",
+        "value": 32597
+      },
+      {
+        "name": "Kobe Bryant",
+        "value": 33643
+      },
+      {
+        "name": "Karl Malone",
+        "value": 36928
+      },
+      {
+        "name": "Kareem Abdul-Jabbar",
+        "value": 38387
+      },
+      {
+        "name": "LeBron James",
+        "value": 43440
+      }
+    ]
+  },
+  {
+    "id": "summer-olympics-gold-medals",
+    "category": "sports",
+    "title": "All-time Summer Olympics gold medals by country (through 2024)",
+    "axis": {
+      "lowLabel": "FEWEST",
+      "highLabel": "MOST",
+      "unit": "gold medals",
+      "format": "compact"
+    },
+    "items": [
+      {
+        "name": "West Germany",
+        "value": 56
+      },
+      {
+        "name": "Switzerland",
+        "value": 57
+      },
+      {
+        "name": "Norway",
+        "value": 63
+      },
+      {
+        "name": "Poland",
+        "value": 76
+      },
+      {
+        "name": "Canada",
+        "value": 79
+      },
+      {
+        "name": "Cuba",
+        "value": 86
+      },
+      {
+        "name": "Romania",
+        "value": 93
+      },
+      {
+        "name": "Finland",
+        "value": 104
+      },
+      {
+        "name": "South Korea",
+        "value": 109
+      },
+      {
+        "name": "Netherlands",
+        "value": 113
+      },
+      {
+        "name": "Russia",
+        "value": 148
+      },
+      {
+        "name": "Sweden",
+        "value": 153
+      },
+      {
+        "name": "Australia",
+        "value": 180
+      },
+      {
+        "name": "Hungary",
+        "value": 188
+      },
+      {
+        "name": "Japan",
+        "value": 189
+      },
+      {
+        "name": "Italy",
+        "value": 234
+      },
+      {
+        "name": "France",
+        "value": 247
+      },
+      {
+        "name": "Germany",
+        "value": 251
+      },
+      {
+        "name": "China",
+        "value": 303
+      },
+      {
+        "name": "Great Britain",
+        "value": 306
+      },
+      {
+        "name": "Soviet Union",
+        "value": 395
+      },
+      {
+        "name": "United States",
+        "value": 1110
+      }
+    ]
+  },
+  {
+    "id": "college-football-ap-poll-2019",
+    "category": "sports",
+    "title": "2019 college football final AP poll",
+    "axis": {
+      "lowLabel": "RANKED #1",
+      "highLabel": "RANKED #25",
+      "unit": "",
+      "format": "plain"
+    },
+    "items": [
+      {
+        "name": "LSU",
+        "value": 1
+      },
+      {
+        "name": "Clemson",
+        "value": 2
+      },
+      {
+        "name": "Ohio State",
+        "value": 3
+      },
+      {
+        "name": "Georgia",
+        "value": 4
+      },
+      {
+        "name": "Oregon",
+        "value": 5
+      },
+      {
+        "name": "Florida",
+        "value": 6
+      },
+      {
+        "name": "Oklahoma",
+        "value": 7
+      },
+      {
+        "name": "Alabama",
+        "value": 8
+      },
+      {
+        "name": "Penn State",
+        "value": 9
+      },
+      {
+        "name": "Minnesota",
+        "value": 10
+      },
+      {
+        "name": "Wisconsin",
+        "value": 11
+      },
+      {
+        "name": "Notre Dame",
+        "value": 12
+      },
+      {
+        "name": "Baylor",
+        "value": 13
+      },
+      {
+        "name": "Auburn",
+        "value": 14
+      },
+      {
+        "name": "Iowa",
+        "value": 15
+      },
+      {
+        "name": "Utah",
+        "value": 16
+      },
+      {
+        "name": "Memphis",
+        "value": 17
+      },
+      {
+        "name": "Michigan",
+        "value": 18
+      },
+      {
+        "name": "Appalachian State",
+        "value": 19
+      },
+      {
+        "name": "Navy",
+        "value": 20
+      },
+      {
+        "name": "Cincinnati",
+        "value": 21
+      },
+      {
+        "name": "Air Force",
+        "value": 22
+      },
+      {
+        "name": "Boise State",
+        "value": 23
+      },
+      {
+        "name": "UCF",
+        "value": 24
+      },
+      {
+        "name": "Texas",
+        "value": 25
+      }
+    ]
+  },
+  {
+    "id": "islands-by-area",
+    "category": "geography",
+    "title": "Largest islands by area",
+    "axis": {
+      "lowLabel": "SMALLEST",
+      "highLabel": "LARGEST",
+      "unit": "km²",
+      "format": "comma"
+    },
+    "items": [
+      {
+        "name": "Sri Lanka",
+        "value": 65268
+      },
+      {
+        "name": "Tasmania",
+        "value": 68401
+      },
+      {
+        "name": "Banks Island",
+        "value": 70028
+      },
+      {
+        "name": "Sakhalin",
+        "value": 72493
+      },
+      {
+        "name": "Hispaniola",
+        "value": 76480
+      },
+      {
+        "name": "Hokkaido",
+        "value": 78719
+      },
+      {
+        "name": "Ireland",
+        "value": 84421
+      },
+      {
+        "name": "Mindanao",
+        "value": 97530
+      },
+      {
+        "name": "Iceland",
+        "value": 101826
+      },
+      {
+        "name": "Cuba",
+        "value": 104556
+      },
+      {
+        "name": "Newfoundland",
+        "value": 108860
+      },
+      {
+        "name": "Luzon",
+        "value": 109965
+      },
+      {
+        "name": "North Island (NZ)",
+        "value": 111583
+      },
+      {
+        "name": "Java",
+        "value": 126700
+      },
+      {
+        "name": "South Island (NZ)",
+        "value": 150437
+      },
+      {
+        "name": "Sulawesi",
+        "value": 180681
+      },
+      {
+        "name": "Ellesmere Island",
+        "value": 196236
+      },
+      {
+        "name": "Great Britain",
+        "value": 209331
+      },
+      {
+        "name": "Victoria Island",
+        "value": 217291
+      },
+      {
+        "name": "Honshu",
+        "value": 225800
+      },
+      {
+        "name": "Sumatra",
+        "value": 480848
+      },
+      {
+        "name": "Baffin Island",
+        "value": 507451
+      },
+      {
+        "name": "Madagascar",
+        "value": 587713
+      },
+      {
+        "name": "Borneo",
+        "value": 748168
+      },
+      {
+        "name": "New Guinea",
+        "value": 785753
+      },
+      {
+        "name": "Greenland",
+        "value": 2130800
+      }
+    ]
+  },
+  {
+    "id": "deserts-by-area",
+    "category": "geography",
+    "title": "Largest deserts by area",
+    "axis": {
+      "lowLabel": "SMALLEST",
+      "highLabel": "LARGEST",
+      "unit": "km²",
+      "format": "comma"
+    },
+    "items": [
+      {
+        "name": "Namib",
+        "value": 81000
+      },
+      {
+        "name": "Atacama",
+        "value": 105000
+      },
+      {
+        "name": "Thar",
+        "value": 200000
+      },
+      {
+        "name": "Kyzylkum",
+        "value": 298000
+      },
+      {
+        "name": "Sonoran",
+        "value": 310000
+      },
+      {
+        "name": "Colorado Plateau",
+        "value": 337000
+      },
+      {
+        "name": "Karakum",
+        "value": 350000
+      },
+      {
+        "name": "Chihuahuan",
+        "value": 453000
+      },
+      {
+        "name": "Great Basin",
+        "value": 492000
+      },
+      {
+        "name": "Syrian Desert",
+        "value": 500000
+      },
+      {
+        "name": "Great Victoria",
+        "value": 647000
+      },
+      {
+        "name": "Rub' al Khali",
+        "value": 650000
+      },
+      {
+        "name": "Patagonian",
+        "value": 673000
+      },
+      {
+        "name": "Kalahari",
+        "value": 900000
+      },
+      {
+        "name": "Gobi",
+        "value": 1300000
+      },
+      {
+        "name": "Great Australian",
+        "value": 1371000
+      },
+      {
+        "name": "Arabian",
+        "value": 2330000
+      },
+      {
+        "name": "Sahara",
+        "value": 9200000
+      },
+      {
+        "name": "Arctic Desert",
+        "value": 13900000
+      },
+      {
+        "name": "Antarctic Desert",
+        "value": 14200000
+      }
+    ]
+  },
+  {
+    "id": "lakes-by-depth",
+    "category": "geography",
+    "title": "Deepest lakes by maximum depth",
+    "axis": {
+      "lowLabel": "SHALLOWEST",
+      "highLabel": "DEEPEST",
+      "unit": "m",
+      "format": "comma"
+    },
+    "items": [
+      {
+        "name": "Lake Poso",
+        "value": 450
+      },
+      {
+        "name": "Lake Van",
+        "value": 451
+      },
+      {
+        "name": "Lake Nahuel Huapi",
+        "value": 464
+      },
+      {
+        "name": "Lake Kivu",
+        "value": 480
+      },
+      {
+        "name": "Sarez Lake",
+        "value": 500
+      },
+      {
+        "name": "Lake Tahoe",
+        "value": 501
+      },
+      {
+        "name": "Lake Toba",
+        "value": 505
+      },
+      {
+        "name": "Quesnel Lake",
+        "value": 511
+      },
+      {
+        "name": "Hornindalsvatnet",
+        "value": 514
+      },
+      {
+        "name": "General Carrera Lake",
+        "value": 586
+      },
+      {
+        "name": "Lake Matano",
+        "value": 590
+      },
+      {
+        "name": "Crater Lake",
+        "value": 594
+      },
+      {
+        "name": "Great Slave Lake",
+        "value": 614
+      },
+      {
+        "name": "Issyk-Kul",
+        "value": 668
+      },
+      {
+        "name": "Lake Malawi",
+        "value": 706
+      },
+      {
+        "name": "O'Higgins Lake",
+        "value": 836
+      },
+      {
+        "name": "Lake Vostok",
+        "value": 1000
+      },
+      {
+        "name": "Caspian Sea",
+        "value": 1025
+      },
+      {
+        "name": "Lake Tanganyika",
+        "value": 1470
+      },
+      {
+        "name": "Lake Baikal",
+        "value": 1642
+      }
+    ]
+  },
+  {
+    "id": "waterfalls-by-height",
+    "category": "geography",
+    "title": "Tallest waterfalls by total height",
+    "axis": {
+      "lowLabel": "SHORTEST",
+      "highLabel": "TALLEST",
+      "unit": "m",
+      "format": "comma"
+    },
+    "items": [
+      {
+        "name": "Sutherland Falls",
+        "value": 580
+      },
+      {
+        "name": "Mardalsfossen",
+        "value": 705
+      },
+      {
+        "name": "Yosemite Falls",
+        "value": 739
+      },
+      {
+        "name": "Isella Falls",
+        "value": 762
+      },
+      {
+        "name": "Kjelfossen",
+        "value": 765
+      },
+      {
+        "name": "Gocta Falls",
+        "value": 771
+      },
+      {
+        "name": "Mongefossen",
+        "value": 773
+      },
+      {
+        "name": "Colonial Creek Falls",
+        "value": 783
+      },
+      {
+        "name": "Waihilau Falls",
+        "value": 792
+      },
+      {
+        "name": "Storeskredfossen",
+        "value": 800
+      },
+      {
+        "name": "Kjerrskredfossen",
+        "value": 831
+      },
+      {
+        "name": "Browne Falls",
+        "value": 836
+      },
+      {
+        "name": "James Bruce Falls",
+        "value": 840
+      },
+      {
+        "name": "Balåifossen",
+        "value": 850
+      },
+      {
+        "name": "Vinnufossen",
+        "value": 860
+      },
+      {
+        "name": "Yumbilla Falls",
+        "value": 896
+      },
+      {
+        "name": "Olo'upena Falls",
+        "value": 900
+      },
+      {
+        "name": "Tres Hermanas",
+        "value": 914
+      },
+      {
+        "name": "Tugela Falls",
+        "value": 948
+      },
+      {
+        "name": "Angel Falls",
+        "value": 979
+      }
+    ]
+  },
+  {
+    "id": "birds-by-wingspan",
+    "category": "nature",
+    "title": "Birds by wingspan",
+    "axis": {
+      "lowLabel": "NARROWEST",
+      "highLabel": "WIDEST",
+      "unit": "cm",
+      "format": "comma"
+    },
+    "items": [
+      {
+        "name": "Ruby-throated Hummingbird",
+        "value": 11
+      },
+      {
+        "name": "Black-capped Chickadee",
+        "value": 20
+      },
+      {
+        "name": "American Goldfinch",
+        "value": 22
+      },
+      {
+        "name": "House Sparrow",
+        "value": 24
+      },
+      {
+        "name": "Northern Cardinal",
+        "value": 31
+      },
+      {
+        "name": "Barn Swallow",
+        "value": 33
+      },
+      {
+        "name": "European Starling",
+        "value": 38
+      },
+      {
+        "name": "Mourning Dove",
+        "value": 45
+      },
+      {
+        "name": "American Kestrel",
+        "value": 55
+      },
+      {
+        "name": "Rock Pigeon",
+        "value": 68
+      },
+      {
+        "name": "American Crow",
+        "value": 100
+      },
+      {
+        "name": "Red-tailed Hawk",
+        "value": 141
+      },
+      {
+        "name": "Great Horned Owl",
+        "value": 153
+      },
+      {
+        "name": "Snowy Owl",
+        "value": 165
+      },
+      {
+        "name": "Great Blue Heron",
+        "value": 183
+      },
+      {
+        "name": "Bald Eagle",
+        "value": 230
+      },
+      {
+        "name": "White-tailed Eagle",
+        "value": 245
+      },
+      {
+        "name": "Andean Condor",
+        "value": 320
+      },
+      {
+        "name": "Dalmatian Pelican",
+        "value": 345
+      },
+      {
+        "name": "Wandering Albatross",
+        "value": 365
+      }
+    ]
+  },
+  {
+    "id": "fruits-by-sugar",
+    "category": "nature",
+    "title": "Fruits by sugar content",
+    "axis": {
+      "lowLabel": "LEAST SWEET",
+      "highLabel": "SWEETEST",
+      "unit": "g/100g",
+      "format": "decimal"
+    },
+    "items": [
+      {
+        "name": "Avocado",
+        "value": 0.7
+      },
+      {
+        "name": "Lime",
+        "value": 1.7
+      },
+      {
+        "name": "Lemon",
+        "value": 2.5
+      },
+      {
+        "name": "Cranberry",
+        "value": 4
+      },
+      {
+        "name": "Raspberry",
+        "value": 4.4
+      },
+      {
+        "name": "Strawberry",
+        "value": 4.9
+      },
+      {
+        "name": "Watermelon",
+        "value": 6.2
+      },
+      {
+        "name": "Grapefruit",
+        "value": 7.3
+      },
+      {
+        "name": "Papaya",
+        "value": 7.8
+      },
+      {
+        "name": "Peach",
+        "value": 8.4
+      },
+      {
+        "name": "Kiwi",
+        "value": 9
+      },
+      {
+        "name": "Orange",
+        "value": 9.4
+      },
+      {
+        "name": "Pear",
+        "value": 9.8
+      },
+      {
+        "name": "Pineapple",
+        "value": 9.9
+      },
+      {
+        "name": "Blueberry",
+        "value": 10
+      },
+      {
+        "name": "Apple",
+        "value": 10.4
+      },
+      {
+        "name": "Banana",
+        "value": 12.2
+      },
+      {
+        "name": "Cherry",
+        "value": 12.8
+      },
+      {
+        "name": "Mango",
+        "value": 13.7
+      },
+      {
+        "name": "Grapes",
+        "value": 15.5
+      },
+      {
+        "name": "Medjool Date",
+        "value": 66.5
+      }
+    ]
+  },
+  {
+    "id": "trees-by-max-height",
+    "category": "nature",
+    "title": "Trees by maximum recorded height",
+    "axis": {
+      "lowLabel": "SHORTEST",
+      "highLabel": "TALLEST",
+      "unit": "m",
+      "format": "comma"
+    },
+    "items": [
+      {
+        "name": "Common Apple",
+        "value": 10
+      },
+      {
+        "name": "Olive",
+        "value": 15
+      },
+      {
+        "name": "Silver Birch",
+        "value": 26
+      },
+      {
+        "name": "White Oak",
+        "value": 30
+      },
+      {
+        "name": "Black Walnut",
+        "value": 38
+      },
+      {
+        "name": "Sugar Maple",
+        "value": 40
+      },
+      {
+        "name": "European Beech",
+        "value": 43
+      },
+      {
+        "name": "Scots Pine",
+        "value": 44
+      },
+      {
+        "name": "Eastern White Pine",
+        "value": 55
+      },
+      {
+        "name": "Tulip Poplar",
+        "value": 58
+      },
+      {
+        "name": "Norway Spruce",
+        "value": 62
+      },
+      {
+        "name": "Blue Gum Eucalyptus",
+        "value": 72
+      },
+      {
+        "name": "Western Red Cedar",
+        "value": 73
+      },
+      {
+        "name": "Ponderosa Pine",
+        "value": 81
+      },
+      {
+        "name": "Western Hemlock",
+        "value": 88
+      },
+      {
+        "name": "Giant Sequoia",
+        "value": 95
+      },
+      {
+        "name": "Sitka Spruce",
+        "value": 97
+      },
+      {
+        "name": "Douglas Fir",
+        "value": 100
+      },
+      {
+        "name": "Mountain Ash",
+        "value": 101
+      },
+      {
+        "name": "Coast Redwood",
+        "value": 116
+      }
+    ]
+  },
+  {
+    "id": "animals-by-max-lifespan",
+    "category": "nature",
+    "title": "Animals by maximum recorded lifespan",
+    "axis": {
+      "lowLabel": "SHORTEST",
+      "highLabel": "LONGEST",
+      "unit": "years",
+      "format": "comma"
+    },
+    "items": [
+      {
+        "name": "House Mouse",
+        "value": 4
+      },
+      {
+        "name": "Golden Hamster",
+        "value": 5
+      },
+      {
+        "name": "Common Rat",
+        "value": 7
+      },
+      {
+        "name": "Wild Rabbit",
+        "value": 18
+      },
+      {
+        "name": "White-tailed Deer",
+        "value": 20
+      },
+      {
+        "name": "American Crow",
+        "value": 21
+      },
+      {
+        "name": "Gray Wolf",
+        "value": 22
+      },
+      {
+        "name": "Pig",
+        "value": 23
+      },
+      {
+        "name": "African Lion",
+        "value": 25
+      },
+      {
+        "name": "Tiger",
+        "value": 26
+      },
+      {
+        "name": "Dog",
+        "value": 31
+      },
+      {
+        "name": "Cat",
+        "value": 38
+      },
+      {
+        "name": "Horse",
+        "value": 57
+      },
+      {
+        "name": "Chimpanzee",
+        "value": 68
+      },
+      {
+        "name": "African Elephant",
+        "value": 74
+      },
+      {
+        "name": "Asian Elephant",
+        "value": 86
+      },
+      {
+        "name": "Aldabra Tortoise",
+        "value": 152
+      },
+      {
+        "name": "Galapagos Tortoise",
+        "value": 175
+      },
+      {
+        "name": "Bowhead Whale",
+        "value": 211
+      },
+      {
+        "name": "Greenland Shark",
+        "value": 392
+      }
+    ]
+  },
+  {
+    "id": "countries-gdp-per-capita-2024",
+    "category": "economics",
+    "title": "Countries by GDP per capita (2024, nominal USD)",
+    "axis": {
+      "lowLabel": "LOWEST",
+      "highLabel": "HIGHEST",
+      "unit": "USD",
+      "format": "compact"
+    },
+    "items": [
+      {
+        "name": "Portugal",
+        "value": 27463
+      },
+      {
+        "name": "Spain",
+        "value": 33090
+      },
+      {
+        "name": "South Korea",
+        "value": 33745
+      },
+      {
+        "name": "Japan",
+        "value": 33834
+      },
+      {
+        "name": "Italy",
+        "value": 37146
+      },
+      {
+        "name": "France",
+        "value": 45874
+      },
+      {
+        "name": "New Zealand",
+        "value": 48782
+      },
+      {
+        "name": "UK",
+        "value": 48913
+      },
+      {
+        "name": "Canada",
+        "value": 52723
+      },
+      {
+        "name": "Finland",
+        "value": 53655
+      },
+      {
+        "name": "Belgium",
+        "value": 53760
+      },
+      {
+        "name": "Austria",
+        "value": 54201
+      },
+      {
+        "name": "Germany",
+        "value": 54291
+      },
+      {
+        "name": "Israel",
+        "value": 54767
+      },
+      {
+        "name": "Sweden",
+        "value": 57717
+      },
+      {
+        "name": "Australia",
+        "value": 63486
+      },
+      {
+        "name": "Netherlands",
+        "value": 63754
+      },
+      {
+        "name": "Denmark",
+        "value": 68827
+      },
+      {
+        "name": "Iceland",
+        "value": 78837
+      },
+      {
+        "name": "Singapore",
+        "value": 84734
+      },
+      {
+        "name": "USA",
+        "value": 85373
+      },
+      {
+        "name": "Norway",
+        "value": 89154
+      },
+      {
+        "name": "Switzerland",
+        "value": 99995
+      },
+      {
+        "name": "Ireland",
+        "value": 103984
+      },
+      {
+        "name": "Luxembourg",
+        "value": 131384
+      }
+    ]
+  },
+  {
+    "id": "companies-market-cap-2025",
+    "category": "economics",
+    "title": "Largest companies by market cap (2025, USD)",
+    "axis": {
+      "lowLabel": "SMALLEST",
+      "highLabel": "LARGEST",
+      "unit": "USD",
+      "format": "compact"
+    },
+    "items": [
+      {
+        "name": "Tencent",
+        "value": 534330000000
+      },
+      {
+        "name": "Johnson & Johnson",
+        "value": 573710000000
+      },
+      {
+        "name": "Intel",
+        "value": 587840000000
+      },
+      {
+        "name": "Visa",
+        "value": 606750000000
+      },
+      {
+        "name": "Exxon Mobil",
+        "value": 607640000000
+      },
+      {
+        "name": "ASML",
+        "value": 732090000000
+      },
+      {
+        "name": "AMD",
+        "value": 796460000000
+      },
+      {
+        "name": "JPMorgan Chase",
+        "value": 839990000000
+      },
+      {
+        "name": "Walmart",
+        "value": 958940000000
+      },
+      {
+        "name": "SK Hynix",
+        "value": 983760000000
+      },
+      {
+        "name": "Eli Lilly",
+        "value": 1035000000000
+      },
+      {
+        "name": "Berkshire Hathaway",
+        "value": 1047000000000
+      },
+      {
+        "name": "TSMC",
+        "value": 1054000000000
+      },
+      {
+        "name": "Micron Technology",
+        "value": 1123000000000
+      },
+      {
+        "name": "Samsung",
+        "value": 1295000000000
+      },
+      {
+        "name": "Meta Platforms",
+        "value": 1442000000000
+      },
+      {
+        "name": "Tesla",
+        "value": 1499000000000
+      },
+      {
+        "name": "Saudi Aramco",
+        "value": 1751000000000
+      },
+      {
+        "name": "SpaceX",
+        "value": 1765000000000
+      },
+      {
+        "name": "Broadcom",
+        "value": 1834000000000
+      },
+      {
+        "name": "Amazon",
+        "value": 2597000000000
+      },
+      {
+        "name": "Microsoft",
+        "value": 2899000000000
+      },
+      {
+        "name": "Apple",
+        "value": 4500000000000
+      },
+      {
+        "name": "Alphabet",
+        "value": 4348000000000
+      },
+      {
+        "name": "NVIDIA",
+        "value": 4962000000000
+      }
+    ]
+  },
+  {
+    "id": "busiest-airports-passengers-2024",
+    "category": "economics",
+    "title": "Busiest airports by passengers (2024)",
+    "axis": {
+      "lowLabel": "FEWEST",
+      "highLabel": "MOST",
+      "unit": "passengers",
+      "format": "compact"
+    },
+    "items": [
+      {
+        "name": "Orlando Intl",
+        "value": 57211628
+      },
+      {
+        "name": "Las Vegas Harry Reid",
+        "value": 58447782
+      },
+      {
+        "name": "Charlotte Douglas",
+        "value": 58811725
+      },
+      {
+        "name": "Shenzhen Bao'an",
+        "value": 61477337
+      },
+      {
+        "name": "Frankfurt",
+        "value": 61564957
+      },
+      {
+        "name": "Bangkok Suvarnabhumi",
+        "value": 62234693
+      },
+      {
+        "name": "New York JFK",
+        "value": 63265984
+      },
+      {
+        "name": "Madrid Barajas",
+        "value": 66148340
+      },
+      {
+        "name": "Amsterdam Schiphol",
+        "value": 66828759
+      },
+      {
+        "name": "Beijing Capital",
+        "value": 67367428
+      },
+      {
+        "name": "Singapore Changi",
+        "value": 67650000
+      },
+      {
+        "name": "Paris CDG",
+        "value": 70290260
+      },
+      {
+        "name": "Seoul Incheon",
+        "value": 71212515
+      },
+      {
+        "name": "Guangzhou Baiyun",
+        "value": 76365092
+      },
+      {
+        "name": "Los Angeles Intl",
+        "value": 76588028
+      },
+      {
+        "name": "Shanghai Pudong",
+        "value": 76787039
+      },
+      {
+        "name": "Delhi Indira Gandhi",
+        "value": 77820834
+      },
+      {
+        "name": "Chicago O'Hare",
+        "value": 80043050
+      },
+      {
+        "name": "Istanbul Airport",
+        "value": 80073252
+      },
+      {
+        "name": "Denver Intl",
+        "value": 82358744
+      },
+      {
+        "name": "London Heathrow",
+        "value": 83884572
+      },
+      {
+        "name": "Tokyo Haneda",
+        "value": 85900167
+      },
+      {
+        "name": "Dallas Fort Worth",
+        "value": 87817864
+      },
+      {
+        "name": "Dubai Intl",
+        "value": 92331506
+      },
+      {
+        "name": "Atlanta Hartsfield",
+        "value": 108067766
+      }
+    ]
+  },
+  {
+    "id": "countries-military-spending-2024",
+    "category": "economics",
+    "title": "Countries by military spending (2024, USD)",
+    "axis": {
+      "lowLabel": "LOWEST",
+      "highLabel": "HIGHEST",
+      "unit": "USD",
+      "format": "compact"
+    },
+    "items": [
+      {
+        "name": "Colombia",
+        "value": 12200000000
+      },
+      {
+        "name": "Singapore",
+        "value": 14600000000
+      },
+      {
+        "name": "Mexico",
+        "value": 16500000000
+      },
+      {
+        "name": "Taiwan",
+        "value": 16600000000
+      },
+      {
+        "name": "Algeria",
+        "value": 20400000000
+      },
+      {
+        "name": "Brazil",
+        "value": 21700000000
+      },
+      {
+        "name": "Turkey",
+        "value": 21900000000
+      },
+      {
+        "name": "Netherlands",
+        "value": 22400000000
+      },
+      {
+        "name": "Spain",
+        "value": 23900000000
+      },
+      {
+        "name": "Canada",
+        "value": 29100000000
+      },
+      {
+        "name": "Australia",
+        "value": 33000000000
+      },
+      {
+        "name": "Poland",
+        "value": 34500000000
+      },
+      {
+        "name": "Italy",
+        "value": 37400000000
+      },
+      {
+        "name": "Israel",
+        "value": 45300000000
+      },
+      {
+        "name": "South Korea",
+        "value": 48500000000
+      },
+      {
+        "name": "Japan",
+        "value": 58400000000
+      },
+      {
+        "name": "France",
+        "value": 63100000000
+      },
+      {
+        "name": "Ukraine",
+        "value": 66800000000
+      },
+      {
+        "name": "UK",
+        "value": 77400000000
+      },
+      {
+        "name": "Saudi Arabia",
+        "value": 79000000000
+      },
+      {
+        "name": "India",
+        "value": 83600000000
+      },
+      {
+        "name": "Germany",
+        "value": 86300000000
+      },
+      {
+        "name": "Russia",
+        "value": 150500000000
+      },
+      {
+        "name": "China",
+        "value": 317600000000
+      },
+      {
+        "name": "United States",
+        "value": 968400000000
+      }
+    ]
+  },
+  {
+    "id": "highest-grossing-films",
+    "category": "language",
+    "title": "Films by worldwide box office (2026)",
+    "axis": {
+      "lowLabel": "LOWEST",
+      "highLabel": "HIGHEST",
+      "unit": "USD",
+      "format": "compact"
+    },
+    "items": [
+      {
+        "name": "Iron Man 3",
+        "value": 1214811252
+      },
+      {
+        "name": "The Fate of the Furious",
+        "value": 1238764765
+      },
+      {
+        "name": "Incredibles 2",
+        "value": 1242805359
+      },
+      {
+        "name": "Beauty and the Beast (2017)",
+        "value": 1263521126
+      },
+      {
+        "name": "Frozen",
+        "value": 1290000000
+      },
+      {
+        "name": "Jurassic World: Fallen Kingdom",
+        "value": 1308476166
+      },
+      {
+        "name": "Star Wars: The Last Jedi",
+        "value": 1332539889
+      },
+      {
+        "name": "Deadpool & Wolverine",
+        "value": 1338073645
+      },
+      {
+        "name": "Harry Potter: Deathly Hallows Pt. 2",
+        "value": 1342139727
+      },
+      {
+        "name": "Black Panther",
+        "value": 1347280838
+      },
+      {
+        "name": "The Super Mario Bros. Movie",
+        "value": 1360783214
+      },
+      {
+        "name": "Avengers: Age of Ultron",
+        "value": 1402809540
+      },
+      {
+        "name": "Barbie",
+        "value": 1447138421
+      },
+      {
+        "name": "Frozen 2",
+        "value": 1450026933
+      },
+      {
+        "name": "Avatar: Fire and Ash",
+        "value": 1485999890
+      },
+      {
+        "name": "Top Gun: Maverick",
+        "value": 1503260455
+      },
+      {
+        "name": "Furious 7",
+        "value": 1515341399
+      },
+      {
+        "name": "The Avengers",
+        "value": 1518815515
+      },
+      {
+        "name": "The Lion King (2019)",
+        "value": 1656943394
+      },
+      {
+        "name": "Jurassic World",
+        "value": 1671537444
+      },
+      {
+        "name": "Inside Out 2",
+        "value": 1698863816
+      },
+      {
+        "name": "Zootopia 2",
+        "value": 1866647950
+      },
+      {
+        "name": "Spider-Man: No Way Home",
+        "value": 1922598800
+      },
+      {
+        "name": "Avengers: Infinity War",
+        "value": 2048359754
+      },
+      {
+        "name": "Star Wars: The Force Awakens",
+        "value": 2068223624
+      },
+      {
+        "name": "Ne Zha 2",
+        "value": 2215690000
+      },
+      {
+        "name": "Titanic",
+        "value": 2257906828
+      },
+      {
+        "name": "Avatar: The Way of Water",
+        "value": 2334484620
+      },
+      {
+        "name": "Avengers: Endgame",
+        "value": 2797501328
+      },
+      {
+        "name": "Avatar",
+        "value": 2923710708
+      }
+    ]
+  },
+  {
+    "id": "best-selling-video-games",
+    "category": "language",
+    "title": "Best-selling video games by copies sold",
+    "axis": {
+      "lowLabel": "FEWEST",
+      "highLabel": "MOST",
+      "unit": "copies",
+      "format": "compact"
+    },
+    "items": [
+      {
+        "name": "New Super Mario Bros. Wii",
+        "value": 30320000
+      },
+      {
+        "name": "Super Mario Odyssey",
+        "value": 30500000
+      },
+      {
+        "name": "New Super Mario Bros.",
+        "value": 30800000
+      },
+      {
+        "name": "Wii Sports Resort",
+        "value": 33140000
+      },
+      {
+        "name": "Cyberpunk 2077",
+        "value": 35000000
+      },
+      {
+        "name": "Zelda: Breath of the Wild",
+        "value": 35540000
+      },
+      {
+        "name": "Mario Kart Wii",
+        "value": 37380000
+      },
+      {
+        "name": "Super Smash Bros. Ultimate",
+        "value": 37760000
+      },
+      {
+        "name": "Hogwarts Legacy",
+        "value": 40000000
+      },
+      {
+        "name": "Call of Duty: Modern Warfare",
+        "value": 41000000
+      },
+      {
+        "name": "Call of Duty: Black Ops III",
+        "value": 43000000
+      },
+      {
+        "name": "Wii Fit / Wii Fit Plus",
+        "value": 43800000
+      },
+      {
+        "name": "Pokémon Red/Blue/Yellow",
+        "value": 47440000
+      },
+      {
+        "name": "Animal Crossing: New Horizons",
+        "value": 49910000
+      },
+      {
+        "name": "Overwatch",
+        "value": 50000000
+      },
+      {
+        "name": "Human: Fall Flat",
+        "value": 55000000
+      },
+      {
+        "name": "Super Mario Bros.",
+        "value": 58000000
+      },
+      {
+        "name": "The Witcher 3: Wild Hunt",
+        "value": 65000000
+      },
+      {
+        "name": "Terraria",
+        "value": 70000000
+      },
+      {
+        "name": "PUBG: Battlegrounds",
+        "value": 75000000
+      },
+      {
+        "name": "Mario Kart 8 / Deluxe",
+        "value": 79540000
+      },
+      {
+        "name": "Wii Sports",
+        "value": 82900000
+      },
+      {
+        "name": "Red Dead Redemption 2",
+        "value": 85000000
+      },
+      {
+        "name": "Grand Theft Auto V",
+        "value": 230000000
+      },
+      {
+        "name": "Minecraft",
+        "value": 350000000
+      }
+    ]
+  },
+  {
+    "id": "most-subscribed-youtube-channels-2026",
+    "category": "language",
+    "title": "Most-subscribed YouTube channels (2026)",
+    "axis": {
+      "lowLabel": "FEWEST",
+      "highLabel": "MOST",
+      "unit": "subscribers",
+      "format": "compact"
+    },
+    "items": [
+      {
+        "name": "ZAMZAM BROTHERS",
+        "value": 84300000
+      },
+      {
+        "name": "Baby Shark / Pinkfong",
+        "value": 84600000
+      },
+      {
+        "name": "BANGTANTV (BTS)",
+        "value": 84700000
+      },
+      {
+        "name": "KL BRO Biju Rithvik",
+        "value": 85800000
+      },
+      {
+        "name": "Topper Guild",
+        "value": 91400000
+      },
+      {
+        "name": "A4",
+        "value": 92600000
+      },
+      {
+        "name": "Zee TV",
+        "value": 98100000
+      },
+      {
+        "name": "ChuChu TV",
+        "value": 98200000
+      },
+      {
+        "name": "Alan's Universe",
+        "value": 101000000
+      },
+      {
+        "name": "Blackpink",
+        "value": 101500000
+      },
+      {
+        "name": "Sony SAB",
+        "value": 105000000
+      },
+      {
+        "name": "Goldmines",
+        "value": 109000000
+      },
+      {
+        "name": "PewDiePie",
+        "value": 110000000
+      },
+      {
+        "name": "WWE",
+        "value": 113000000
+      },
+      {
+        "name": "Alejo Igoa",
+        "value": 117000000
+      },
+      {
+        "name": "Zee Music Company",
+        "value": 122000000
+      },
+      {
+        "name": "Like Nastya",
+        "value": 132000000
+      },
+      {
+        "name": "Kids Diana Show",
+        "value": 138000000
+      },
+      {
+        "name": "Stokes Twins",
+        "value": 140000000
+      },
+      {
+        "name": "Vlad and Niki",
+        "value": 150000000
+      },
+      {
+        "name": "SET India",
+        "value": 189000000
+      },
+      {
+        "name": "Cocomelon",
+        "value": 201000000
+      },
+      {
+        "name": "T-Series",
+        "value": 312000000
+      },
+      {
+        "name": "MrBeast",
+        "value": 499000000
+      }
+    ]
+  },
+  {
+    "id": "most-streamed-spotify-songs-2026",
+    "category": "language",
+    "title": "Most-streamed Spotify songs of all time (2026)",
+    "axis": {
+      "lowLabel": "FEWEST",
+      "highLabel": "MOST",
+      "unit": "streams",
+      "format": "compact"
+    },
+    "items": [
+      {
+        "name": "Counting Stars – OneRepublic",
+        "value": 3506000000
+      },
+      {
+        "name": "Every Breath You Take – The Police",
+        "value": 3550000000
+      },
+      {
+        "name": "Another Love – Tom Odell",
+        "value": 3583000000
+      },
+      {
+        "name": "Say You Won't Let Go – James Arthur",
+        "value": 3619000000
+      },
+      {
+        "name": "Something Just Like This – Chainsmokers & Coldplay",
+        "value": 3661000000
+      },
+      {
+        "name": "Riptide – Vance Joy",
+        "value": 3718000000
+      },
+      {
+        "name": "Die With A Smile – Gaga & Bruno Mars",
+        "value": 3744000000
+      },
+      {
+        "name": "Closer – Chainsmokers & Halsey",
+        "value": 3751000000
+      },
+      {
+        "name": "Birds of a Feather – Billie Eilish",
+        "value": 3774000000
+      },
+      {
+        "name": "The Night We Met – Lord Huron",
+        "value": 3781000000
+      },
+      {
+        "name": "Lovely – Billie Eilish & Khalid",
+        "value": 3782000000
+      },
+      {
+        "name": "Heat Waves – Glass Animals",
+        "value": 3796000000
+      },
+      {
+        "name": "Yellow – Coldplay",
+        "value": 3800000000
+      },
+      {
+        "name": "I Wanna Be Yours – Arctic Monkeys",
+        "value": 3831000000
+      },
+      {
+        "name": "Believer – Imagine Dragons",
+        "value": 3868000000
+      },
+      {
+        "name": "Stay – Kid Laroi & Justin Bieber",
+        "value": 3957000000
+      },
+      {
+        "name": "Perfect – Ed Sheeran",
+        "value": 3988000000
+      },
+      {
+        "name": "Sunflower – Post Malone & Swae Lee",
+        "value": 4275000000
+      },
+      {
+        "name": "One Dance – Drake",
+        "value": 4282000000
+      },
+      {
+        "name": "Someone You Loved – Lewis Capaldi",
+        "value": 4346000000
+      },
+      {
+        "name": "As It Was – Harry Styles",
+        "value": 4458000000
+      },
+      {
+        "name": "Starboy – The Weeknd",
+        "value": 4580000000
+      },
+      {
+        "name": "Sweater Weather – The Neighbourhood",
+        "value": 4663000000
+      },
+      {
+        "name": "Shape of You – Ed Sheeran",
+        "value": 4951000000
+      },
+      {
+        "name": "Blinding Lights – The Weeknd",
+        "value": 5450000000
+      }
+    ]
+  },
+  {
+    "id": "us-primetime-tv-by-episodes",
+    "category": "language",
+    "title": "Longest-running US primetime scripted shows by episodes",
+    "axis": {
+      "lowLabel": "FEWEST",
+      "highLabel": "MOST",
+      "unit": "episodes",
+      "format": "comma"
+    },
+    "items": [
+      {
+        "name": "Will & Grace",
+        "value": 246
+      },
+      {
+        "name": "NYPD Blue",
+        "value": 261
+      },
+      {
+        "name": "Two and a Half Men",
+        "value": 262
+      },
+      {
+        "name": "Murder, She Wrote",
+        "value": 264
+      },
+      {
+        "name": "Cheers",
+        "value": 275
+      },
+      {
+        "name": "The Big Bang Theory",
+        "value": 279
+      },
+      {
+        "name": "Hawaii Five-O (1968)",
+        "value": 282
+      },
+      {
+        "name": "Blue Bloods",
+        "value": 293
+      },
+      {
+        "name": "Chicago Fire",
+        "value": 295
+      },
+      {
+        "name": "Bob's Burgers",
+        "value": 313
+      },
+      {
+        "name": "NCIS: Los Angeles",
+        "value": 323
+      },
+      {
+        "name": "Supernatural",
+        "value": 327
+      },
+      {
+        "name": "ER",
+        "value": 331
+      },
+      {
+        "name": "CSI: Crime Scene Investigation",
+        "value": 337
+      },
+      {
+        "name": "Dallas",
+        "value": 357
+      },
+      {
+        "name": "Criminal Minds",
+        "value": 358
+      },
+      {
+        "name": "American Dad!",
+        "value": 397
+      },
+      {
+        "name": "Family Guy",
+        "value": 461
+      },
+      {
+        "name": "Grey's Anatomy",
+        "value": 466
+      },
+      {
+        "name": "NCIS",
+        "value": 507
+      },
+      {
+        "name": "Law & Order",
+        "value": 544
+      },
+      {
+        "name": "Law & Order: SVU",
+        "value": 594
+      },
+      {
+        "name": "The Simpsons",
+        "value": 805
+      }
+    ]
+  },
+  {
+    "id": "nba-career-assists-alltime",
+    "category": "sports",
+    "title": "NBA all-time career assists leaders",
+    "axis": {
+      "lowLabel": "FEWEST",
+      "highLabel": "MOST",
+      "unit": "assists",
+      "format": "comma"
+    },
+    "items": [
+      {
+        "name": "Mike Conley",
+        "value": 6782
+      },
+      {
+        "name": "Deron Williams",
+        "value": 6819
+      },
+      {
+        "name": "Guy Rodgers",
+        "value": 6917
+      },
+      {
+        "name": "Bob Cousy",
+        "value": 6955
+      },
+      {
+        "name": "Tony Parker",
+        "value": 7036
+      },
+      {
+        "name": "Tim Hardaway",
+        "value": 7095
+      },
+      {
+        "name": "Kyle Lowry",
+        "value": 7110
+      },
+      {
+        "name": "Terry Porter",
+        "value": 7160
+      },
+      {
+        "name": "Lenny Wilkens",
+        "value": 7211
+      },
+      {
+        "name": "Maurice Cheeks",
+        "value": 7392
+      },
+      {
+        "name": "Rajon Rondo",
+        "value": 7584
+      },
+      {
+        "name": "Rod Strickland",
+        "value": 7987
+      },
+      {
+        "name": "Andre Miller",
+        "value": 8524
+      },
+      {
+        "name": "James Harden",
+        "value": 8873
+      },
+      {
+        "name": "Gary Payton",
+        "value": 8966
+      },
+      {
+        "name": "Isiah Thomas",
+        "value": 9061
+      },
+      {
+        "name": "Oscar Robertson",
+        "value": 9887
+      },
+      {
+        "name": "Magic Johnson",
+        "value": 10141
+      },
+      {
+        "name": "Mark Jackson",
+        "value": 10334
+      },
+      {
+        "name": "Steve Nash",
+        "value": 10335
+      },
+      {
+        "name": "Russell Westbrook",
+        "value": 10351
+      },
+      {
+        "name": "LeBron James",
+        "value": 12016
+      },
+      {
+        "name": "Jason Kidd",
+        "value": 12091
+      },
+      {
+        "name": "Chris Paul",
+        "value": 12552
+      },
+      {
+        "name": "John Stockton",
+        "value": 15806
+      }
+    ]
+  },
+  {
+    "id": "nba-career-rebounds-alltime",
+    "category": "sports",
+    "title": "NBA all-time career rebounds leaders",
+    "axis": {
+      "lowLabel": "FEWEST",
+      "highLabel": "MOST",
+      "unit": "rebounds",
+      "format": "comma"
+    },
+    "items": [
+      {
+        "name": "Kevin Willis",
+        "value": 11901
+      },
+      {
+        "name": "Dennis Rodman",
+        "value": 11954
+      },
+      {
+        "name": "LeBron James",
+        "value": 12095
+      },
+      {
+        "name": "Charles Oakley",
+        "value": 12205
+      },
+      {
+        "name": "Paul Silas",
+        "value": 12357
+      },
+      {
+        "name": "Dikembe Mutombo",
+        "value": 12359
+      },
+      {
+        "name": "Charles Barkley",
+        "value": 12546
+      },
+      {
+        "name": "Bob Pettit",
+        "value": 12849
+      },
+      {
+        "name": "Jerry Lucas",
+        "value": 12942
+      },
+      {
+        "name": "Buck Williams",
+        "value": 13017
+      },
+      {
+        "name": "Shaquille O'Neal",
+        "value": 13099
+      },
+      {
+        "name": "Hakeem Olajuwon",
+        "value": 13748
+      },
+      {
+        "name": "Wes Unseld",
+        "value": 13769
+      },
+      {
+        "name": "Walt Bellamy",
+        "value": 14241
+      },
+      {
+        "name": "Nate Thurmond",
+        "value": 14464
+      },
+      {
+        "name": "Dwight Howard",
+        "value": 14627
+      },
+      {
+        "name": "Kevin Garnett",
+        "value": 14662
+      },
+      {
+        "name": "Robert Parish",
+        "value": 14715
+      },
+      {
+        "name": "Karl Malone",
+        "value": 14968
+      },
+      {
+        "name": "Tim Duncan",
+        "value": 15091
+      },
+      {
+        "name": "Moses Malone",
+        "value": 16212
+      },
+      {
+        "name": "Elvin Hayes",
+        "value": 16279
+      },
+      {
+        "name": "Kareem Abdul-Jabbar",
+        "value": 17440
+      },
+      {
+        "name": "Bill Russell",
+        "value": 21620
+      },
+      {
+        "name": "Wilt Chamberlain",
+        "value": 23924
+      }
+    ]
+  },
+  {
+    "id": "nfl-career-passing-yards-alltime",
+    "category": "sports",
+    "title": "NFL all-time career passing yards leaders",
+    "axis": {
+      "lowLabel": "FEWEST",
+      "highLabel": "MOST",
+      "unit": "yards",
+      "format": "comma"
+    },
+    "items": [
+      {
+        "name": "Johnny Unitas",
+        "value": 40239
+      },
+      {
+        "name": "Joe Montana",
+        "value": 40551
+      },
+      {
+        "name": "Kerry Collins",
+        "value": 40922
+      },
+      {
+        "name": "Derek Carr",
+        "value": 41245
+      },
+      {
+        "name": "Dan Fouts",
+        "value": 43040
+      },
+      {
+        "name": "Drew Bledsoe",
+        "value": 44611
+      },
+      {
+        "name": "Kirk Cousins",
+        "value": 44700
+      },
+      {
+        "name": "Vinny Testaverde",
+        "value": 46233
+      },
+      {
+        "name": "Carson Palmer",
+        "value": 46247
+      },
+      {
+        "name": "Russell Wilson",
+        "value": 46966
+      },
+      {
+        "name": "Fran Tarkenton",
+        "value": 47003
+      },
+      {
+        "name": "Joe Flacco",
+        "value": 48176
+      },
+      {
+        "name": "Warren Moon",
+        "value": 49325
+      },
+      {
+        "name": "John Elway",
+        "value": 51475
+      },
+      {
+        "name": "Eli Manning",
+        "value": 57023
+      },
+      {
+        "name": "Dan Marino",
+        "value": 61361
+      },
+      {
+        "name": "Matt Ryan",
+        "value": 62792
+      },
+      {
+        "name": "Philip Rivers",
+        "value": 63984
+      },
+      {
+        "name": "Ben Roethlisberger",
+        "value": 64088
+      },
+      {
+        "name": "Matthew Stafford",
+        "value": 64516
+      },
+      {
+        "name": "Aaron Rodgers",
+        "value": 66274
+      },
+      {
+        "name": "Brett Favre",
+        "value": 71838
+      },
+      {
+        "name": "Peyton Manning",
+        "value": 71940
+      },
+      {
+        "name": "Drew Brees",
+        "value": 80358
+      },
+      {
+        "name": "Tom Brady",
+        "value": 89214
+      }
+    ]
+  },
+  {
+    "id": "college-football-ap-poll-2021",
+    "category": "sports",
+    "title": "2021 college football final AP poll",
+    "axis": {
+      "lowLabel": "RANKED #1",
+      "highLabel": "RANKED #25",
+      "unit": "",
+      "format": "plain"
+    },
+    "items": [
+      {
+        "name": "Georgia",
+        "value": 1
+      },
+      {
+        "name": "Alabama",
+        "value": 2
+      },
+      {
+        "name": "Michigan",
+        "value": 3
+      },
+      {
+        "name": "Cincinnati",
+        "value": 4
+      },
+      {
+        "name": "Baylor",
+        "value": 5
+      },
+      {
+        "name": "Ohio State",
+        "value": 6
+      },
+      {
+        "name": "Oklahoma State",
+        "value": 7
+      },
+      {
+        "name": "Notre Dame",
+        "value": 8
+      },
+      {
+        "name": "Michigan State",
+        "value": 9
+      },
+      {
+        "name": "Oklahoma",
+        "value": 10
+      },
+      {
+        "name": "Ole Miss",
+        "value": 11
+      },
+      {
+        "name": "Utah",
+        "value": 12
+      },
+      {
+        "name": "Pittsburgh",
+        "value": 13
+      },
+      {
+        "name": "Clemson",
+        "value": 14
+      },
+      {
+        "name": "Wake Forest",
+        "value": 15
+      },
+      {
+        "name": "Louisiana",
+        "value": 16
+      },
+      {
+        "name": "Houston",
+        "value": 17
+      },
+      {
+        "name": "Kentucky",
+        "value": 18
+      },
+      {
+        "name": "BYU",
+        "value": 19
+      },
+      {
+        "name": "NC State",
+        "value": 20
+      },
+      {
+        "name": "Arkansas",
+        "value": 21
+      },
+      {
+        "name": "Oregon",
+        "value": 22
+      },
+      {
+        "name": "Iowa",
+        "value": 23
+      },
+      {
+        "name": "Utah State",
+        "value": 24
+      },
+      {
+        "name": "San Diego State",
+        "value": 25
+      }
+    ]
+  }
+]

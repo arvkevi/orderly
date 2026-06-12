@@ -1,6 +1,8 @@
 (function () {
   'use strict';
 
+  const { mulberry32, hashString, seededShuffle } = window.RankingsCore;
+
   // --- Config ---
   const BASE_DATE = '2026-03-31';
   const INITIAL_EVENTS = 5;
@@ -30,6 +32,15 @@
     { id: 'us-history', label: 'United States History', categories: ['us history'] },
   ];
 
+  // --- Ranking categories (one daily puzzle each) ---
+  const RANK_CATEGORIES = [
+    { id: 'geography', label: 'Geography' },
+    { id: 'nature', label: 'Nature & Human-Scale' },
+    { id: 'economics', label: 'Economics & Data' },
+    { id: 'language', label: 'Language & Culture' },
+    { id: 'sports', label: 'Sports' },
+  ];
+
   // --- State ---
   let allEvents = [];
   let currentMode = 'all';
@@ -40,35 +51,10 @@
   let revealedDecades = new Set();
   let drawnEvents = [];
   let submitted = false;
-
-  // --- Seeded PRNG (mulberry32) ---
-  function mulberry32(seed) {
-    return function () {
-      seed |= 0;
-      seed = seed + 0x6D2B79F5 | 0;
-      let t = Math.imul(seed ^ seed >>> 15, 1 | seed);
-      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
-      return ((t ^ t >>> 14) >>> 0) / 4294967296;
-    };
-  }
-
-  function hashString(str) {
-    let h = 0;
-    for (let i = 0; i < str.length; i++) {
-      h = ((h << 5) - h) + str.charCodeAt(i);
-      h |= 0;
-    }
-    return h;
-  }
-
-  function seededShuffle(arr, rng) {
-    const a = arr.slice();
-    for (let i = a.length - 1; i > 0; i--) {
-      const j = Math.floor(rng() * (i + 1));
-      [a[i], a[j]] = [a[j], a[i]];
-    }
-    return a;
-  }
+  let currentView = 'time';        // 'time' | 'rankings'
+  let allTopics = [];              // loaded from rankings.json
+  let currentRankCategory = RANK_CATEGORIES[0].id;
+  let activePuzzle = null;         // descriptor for the current ranking puzzle
 
   // --- Date helpers ---
   function getTodayString() {
@@ -107,8 +93,39 @@
     return MODES.find(m => m.id === id) || MODES[0];
   }
 
+  // The engine reads ordering/labels/formatting through this descriptor so the
+  // same code path serves both the Time view and the Rankings view.
+  function timePuzzleAxis() {
+    return { lowLabel: 'EARLIEST', highLabel: 'MOST RECENT' };
+  }
+
+  function itemDisplayString(item) {
+    if (currentView === 'rankings' && activePuzzle) {
+      return window.RankingsCore.formatValue(item.value, activePuzzle.axis);
+    }
+    return formatDate(item.date);
+  }
+
+  function currentAxis() {
+    if (currentView === 'rankings' && activePuzzle) return activePuzzle.axis;
+    return timePuzzleAxis();
+  }
+
+  function sortByActiveKey(items) {
+    const key = currentView === 'rankings' ? 'value' : 'date';
+    return items.slice().sort((a, b) => (a[key] < b[key] ? -1 : a[key] > b[key] ? 1 : 0));
+  }
+
+  // Ranking items are {name, value}; the engine identifies cards by ev.event,
+  // so alias event -> name. Idempotent and safe to call on shared pool objects.
+  function normalizeRankingItems(pool) {
+    pool.forEach(it => { if (it.event === undefined) it.event = it.name; });
+    return pool;
+  }
+
   function getStorageKey() {
-    return STORAGE_KEY + (currentMode === 'all' ? '' : '-' + currentMode);
+    // Delegates to storageKeyFor so the key scheme lives in one place.
+    return storageKeyFor(activeIdForLabel());
   }
 
   function filterEventsByMode() {
@@ -121,10 +138,26 @@
     }
   }
 
-  function getModeFromHash() {
-    const hash = window.location.hash.replace('#', '');
-    if (hash && MODES.some(m => m.id === hash)) return hash;
-    return 'all';
+  // Returns { view, mode, rankCategory } parsed from the URL hash.
+  // Time:     ''  | '#nba' | '#kpop' ...
+  // Rankings: '#rankings' | '#rankings/geography'
+  function parseHash() {
+    const hash = window.location.hash.replace(/^#/, '');
+    if (hash === 'rankings' || hash.startsWith('rankings/')) {
+      const cat = hash.split('/')[1];
+      const valid = RANK_CATEGORIES.some(c => c.id === cat);
+      return { view: 'rankings', mode: 'all', rankCategory: valid ? cat : RANK_CATEGORIES[0].id };
+    }
+    const mode = MODES.some(m => m.id === hash) ? hash : 'all';
+    return { view: 'time', mode, rankCategory: RANK_CATEGORIES[0].id };
+  }
+
+  function writeHash() {
+    if (currentView === 'rankings') {
+      window.location.hash = 'rankings/' + currentRankCategory;
+    } else {
+      window.location.hash = currentMode === 'all' ? '' : currentMode;
+    }
   }
 
   // --- Local storage ---
@@ -172,14 +205,6 @@
     }
   }
 
-  function sortByDate(events) {
-    return events.slice().sort((a, b) => {
-      if (a.date < b.date) return -1;
-      if (a.date > b.date) return 1;
-      return 0;
-    });
-  }
-
   function scoreForDistance(n, distance) {
     if (distance === 0) return n;
     if (distance === 1) return n - 2;
@@ -213,73 +238,129 @@
   }
 
   // --- Mode selector rendering ---
-  function isModeCompleted(modeId) {
-    const key = STORAGE_KEY + (modeId === 'all' ? '' : '-' + modeId);
-    const data = JSON.parse(localStorage.getItem(key) || '{}');
+  function currentMenuEntries() {
+    if (currentView === 'rankings') {
+      return RANK_CATEGORIES.map(c => {
+        const topic = window.RankingsCore.pickDailyTopic(allTopics, c.id, getTodayString());
+        return { id: c.id, label: c.label, subtitle: topic ? topic.title : '—' };
+      });
+    }
+    return MODES.map(m => ({ id: m.id, label: m.label, subtitle: null }));
+  }
+
+  function activeIdForLabel() {
+    return currentView === 'rankings' ? currentRankCategory : currentMode;
+  }
+
+  function storageKeyFor(id) {
+    if (currentView === 'rankings') return STORAGE_KEY + '-rank-' + id;
+    return STORAGE_KEY + (id === 'all' ? '' : '-' + id);
+  }
+
+  function isEntryCompleted(id) {
+    const data = JSON.parse(localStorage.getItem(storageKeyFor(id)) || '{}');
     return !!data[getTodayString()];
   }
 
-  function getModeScore(modeId) {
-    const key = STORAGE_KEY + (modeId === 'all' ? '' : '-' + modeId);
-    const data = JSON.parse(localStorage.getItem(key) || '{}');
-    const result = data[getTodayString()];
-    return result ? result : null;
+  function getEntryScore(id) {
+    const data = JSON.parse(localStorage.getItem(storageKeyFor(id)) || '{}');
+    return data[getTodayString()] || null;
   }
 
   function renderModeSelector() {
     const toggle = document.getElementById('mode-dropdown-toggle');
     const label = document.getElementById('mode-current-label');
     const menu = document.getElementById('mode-dropdown-menu');
-    const currentModeObj = getModeById(currentMode);
-    const completed = isModeCompleted(currentMode);
 
-    label.textContent = (completed ? '✓ ' : '') + currentModeObj.label;
+    const currentLabel = currentView === 'rankings'
+      ? (RANK_CATEGORIES.find(c => c.id === currentRankCategory) || RANK_CATEGORIES[0]).label
+      : getModeById(currentMode).label;
+    const completed = isEntryCompleted(activeIdForLabel());
+    label.textContent = (completed ? '✓ ' : '') + currentLabel;
     toggle.classList.toggle('completed', completed);
 
     menu.innerHTML = '';
-    MODES.forEach(mode => {
+    const activeId = currentView === 'rankings' ? currentRankCategory : currentMode;
+    currentMenuEntries().forEach(entry => {
+      const done = isEntryCompleted(entry.id);
+      const result = getEntryScore(entry.id);
       const item = document.createElement('button');
-      const done = isModeCompleted(mode.id);
-      const result = getModeScore(mode.id);
       item.className = 'mode-menu-item' +
-        (mode.id === currentMode ? ' active' : '') +
-        (done ? ' completed' : '');
-
-      let scoreText = '';
-      if (result) {
-        scoreText = `<span class="mode-score">${result.score}/${result.maxScore}</span>`;
-      }
-
-      item.innerHTML = `
-        <span class="mode-item-label">${done ? '✓ ' : ''}${mode.label}</span>
-        ${scoreText}
-      `;
+        (entry.id === activeId ? ' active' : '') + (done ? ' completed' : '');
+      const scoreText = result
+        ? `<span class="mode-score">${result.score}/${result.maxScore}</span>` : '';
+      const subtitle = entry.subtitle
+        ? `<span class="mode-item-subtitle">${escapeHtml(entry.subtitle)}</span>` : '';
+      item.innerHTML =
+        `<span class="mode-item-label">${done ? '✓ ' : ''}${escapeHtml(entry.label)}${subtitle}</span>${scoreText}`;
       item.addEventListener('click', () => {
         menu.classList.add('hidden');
-        if (mode.id !== currentMode) switchMode(mode.id);
+        selectEntry(entry.id);
       });
       menu.appendChild(item);
     });
 
-    // Toggle dropdown
+    // Toggle dropdown (assignment, so re-rendering doesn't stack handlers)
     toggle.onclick = () => menu.classList.toggle('hidden');
-
-    // Close on outside click
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest('#mode-dropdown')) {
-        menu.classList.add('hidden');
-      }
-    });
   }
 
-  function switchMode(modeId) {
-    if (modeId === currentMode) return;
-    currentMode = modeId;
-    window.location.hash = modeId === 'all' ? '' : modeId;
+  function selectEntry(id) {
+    if (currentView === 'rankings') {
+      if (id === currentRankCategory) return;
+      currentRankCategory = id;
+    } else {
+      if (id === currentMode) return;
+      currentMode = id;
+      filterEventsByMode();
+    }
+    writeHash();
     resetGameState();
-    filterEventsByMode();
     renderModeSelector();
-    startPuzzle();
+    startActivePuzzle();
+  }
+
+  function updateTagline() {
+    const el = document.getElementById('tagline');
+    if (!el) return;
+    if (currentView === 'rankings') {
+      el.innerHTML = 'Arrange items from <strong>least</strong> (top) to <strong>most</strong> (bottom)';
+    } else {
+      el.innerHTML = 'Arrange events from <strong>earliest</strong> (top) to <strong>latest</strong> (bottom)';
+    }
+  }
+
+  // Prominent "what am I ordering?" banner (topic + direction). Shown above the
+  // board while playing AND on the results screen in the Rankings view.
+  function renderRankPromptInto(el) {
+    if (!el) return;
+    if (currentView === 'rankings' && activePuzzle) {
+      const ax = activePuzzle.axis;
+      el.innerHTML =
+        `<span class="rank-prompt-title">${escapeHtml(activePuzzle.title)}</span>` +
+        `<span class="rank-prompt-dir">${escapeHtml(ax.lowLabel)}` +
+        ` <span class="rank-prompt-arrow">→</span> ${escapeHtml(ax.highLabel)}</span>`;
+      el.classList.remove('hidden');
+    } else {
+      el.classList.add('hidden');
+    }
+  }
+
+  function updateRankPrompt() {
+    renderRankPromptInto(document.getElementById('rank-prompt'));
+  }
+
+  function switchView(view) {
+    if (view === currentView) return;
+    currentView = view;
+    document.getElementById('view-time').classList.toggle('active', view === 'time');
+    document.getElementById('view-rankings').classList.toggle('active', view === 'rankings');
+    document.body.classList.toggle('rankings-view', view === 'rankings');
+    if (view === 'time') filterEventsByMode();
+    writeHash();
+    resetGameState();
+    renderModeSelector();
+    startActivePuzzle();
+    updateTagline();
   }
 
   function resetGameState() {
@@ -300,10 +381,16 @@
   function renderPuzzleInfo(dateStr) {
     const num = getPuzzleNumber(dateStr);
     const displayDate = formatDate(dateStr);
-    const mode = getModeById(currentMode);
-    const modeLabel = currentMode === 'all' ? '' : ` · ${mode.label}`;
+    let label;
+    if (currentView === 'rankings') {
+      const cat = RANK_CATEGORIES.find(c => c.id === currentRankCategory);
+      label = ` · ${cat ? cat.label : ''}`;
+    } else {
+      const mode = getModeById(currentMode);
+      label = currentMode === 'all' ? '' : ` · ${mode.label}`;
+    }
     document.getElementById('puzzle-info').textContent =
-      `Puzzle #${num}${modeLabel} — ${displayDate}`;
+      `Puzzle #${num}${label} — ${displayDate}`;
   }
 
   function updateScorePreview() {
@@ -330,6 +417,8 @@
     const count = reserveEvents.length;
     const btn = document.getElementById('add-event-btn');
     const countEl = document.getElementById('remaining-count');
+    const labelEl = document.getElementById('draw-label');
+    if (labelEl) labelEl.textContent = currentView === 'rankings' ? 'Draw another' : 'Draw Event';
     countEl.textContent = `(${count} remaining)`;
     btn.disabled = count === 0;
     btn.classList.toggle('btn-disabled', count === 0);
@@ -338,6 +427,12 @@
   function renderEventList() {
     const list = document.getElementById('event-list');
     list.innerHTML = '';
+    const axis = currentAxis();
+    const lowEl = document.getElementById('cap-low');
+    const highEl = document.getElementById('cap-high');
+    if (lowEl) lowEl.textContent = axis.lowLabel;
+    if (highEl) highEl.textContent = axis.highLabel;
+    updateRankPrompt();
     activeEvents.forEach((ev, idx) => {
       list.appendChild(createEventCard(ev, idx));
     });
@@ -353,13 +448,10 @@
 
     const catRevealed = revealedCategories.has(ev.event);
     const decRevealed = revealedDecades.has(ev.event);
-    const showCatHint = currentMode === 'all';
+    const showHints = currentView === 'time';
+    const showCatHint = currentView === 'time' && currentMode === 'all';
 
-    card.innerHTML = `
-      <span class="card-grip">⠿</span>
-      <span class="card-number">${index + 1}</span>
-      <div class="card-body">
-        <span class="card-event-name">${escapeHtml(ev.event)}</span>
+    const hintsRowHtml = showHints ? `
         <div class="card-hints-row">
           ${showCatHint ? `
             <button class="hint-btn hint-category-btn ${catRevealed ? 'hidden' : ''}" title="Costs ${CATEGORY_HINT_COST} pt">Category <span class="hint-cost">−${CATEGORY_HINT_COST}</span></button>
@@ -368,6 +460,14 @@
           <button class="hint-btn hint-decade-btn ${decRevealed ? 'hidden' : ''}" title="Costs ${getDecadeHintCost()} pts">Decade <span class="hint-cost">−${getDecadeHintCost()}</span></button>
           <span class="hint-revealed hint-dec-value ${decRevealed ? '' : 'hidden'}">${getDecade(ev.date)}</span>
         </div>
+    ` : '';
+
+    card.innerHTML = `
+      <span class="card-grip">⠿</span>
+      <span class="card-number">${index + 1}</span>
+      <div class="card-body">
+        <span class="card-event-name">${escapeHtml(ev.event)}</span>
+        ${hintsRowHtml}
       </div>
     `;
 
@@ -384,15 +484,17 @@
       });
     }
 
-    card.querySelector('.hint-decade-btn').addEventListener('click', (e) => {
-      e.stopPropagation();
-      if (revealedDecades.has(ev.event)) return;
-      if (!confirm(`Reveal decade? This costs ${getDecadeHintCost()} points.`)) return;
-      revealedDecades.add(ev.event);
-      card.querySelector('.hint-decade-btn').classList.add('hidden');
-      card.querySelector('.hint-dec-value').classList.remove('hidden');
-      updateScorePreview();
-    });
+    if (showHints) {
+      card.querySelector('.hint-decade-btn').addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (revealedDecades.has(ev.event)) return;
+        if (!confirm(`Reveal decade? This costs ${getDecadeHintCost()} points.`)) return;
+        revealedDecades.add(ev.event);
+        card.querySelector('.hint-decade-btn').classList.add('hidden');
+        card.querySelector('.hint-dec-value').classList.remove('hidden');
+        updateScorePreview();
+      });
+    }
 
     card.addEventListener('dragstart', onDragStart);
     card.addEventListener('dragend', onDragEnd);
@@ -654,7 +756,7 @@
     if (submitted || activeEvents.length < MIN_EVENTS) return;
     submitted = true;
 
-    const correctOrder = sortByDate(activeEvents);
+    const correctOrder = sortByActiveKey(activeEvents);
     const result = calculateScore(activeEvents, correctOrder);
 
     const dateStr = getTodayString();
@@ -676,6 +778,7 @@
     document.getElementById('game').classList.add('hidden');
     document.getElementById('results').classList.remove('hidden');
     document.body.classList.add('results-view');
+    renderRankPromptInto(document.getElementById('results-prompt'));
 
     const pct = result.maxScore > 0 ? result.score / result.maxScore : 0;
     let title = 'Nice try!';
@@ -721,7 +824,7 @@
           <div class="row-body">
             <div class="row-event" title="${title}">${escapeHtml(ev.event)}</div>
             <div class="row-meta">
-              <span class="row-date">${formatDate(ev.date)}</span>
+              <span class="row-date">${escapeHtml(itemDisplayString(ev))}</span>
               <span class="row-distance">${distLabel}</span>
             </div>
           </div>
@@ -840,15 +943,22 @@
 
   function shareResults(result, dateStr) {
     const num = getPuzzleNumber(dateStr);
-    const mode = getModeById(currentMode);
-    const modeLabel = currentMode === 'all' ? '' : ` [${mode.label}]`;
     const emoji = result.perEvent.map(e => {
       if (e.distance === 0) return '🟩';
       if (e.distance === 1) return '🟨';
       if (e.distance === 2) return '🟧';
       return '🟥';
     }).join('');
-    const text = `⏱️ Orderly #${num}${modeLabel}\nScore: ${result.score}/${result.maxScore} (${result.attempted} events)\n${emoji}`;
+    let header;
+    if (currentView === 'rankings') {
+      const cat = RANK_CATEGORIES.find(c => c.id === currentRankCategory);
+      header = `📊 Orderly Rankings #${num} [${cat ? cat.label : ''}]`;
+    } else {
+      const mode = getModeById(currentMode);
+      const modeLabel = currentMode === 'all' ? '' : ` [${mode.label}]`;
+      header = `⏱️ Orderly #${num}${modeLabel}`;
+    }
+    const text = `${header}\nScore: ${result.score}/${result.maxScore} (${result.attempted} events)\n${emoji}`;
 
     navigator.clipboard.writeText(text).then(() => {
       const msg = document.getElementById('copied-msg');
@@ -878,10 +988,17 @@
       perEvent: saved.perEvent || []
     };
 
-    const pool = selectDailyEvents(dateStr);
+    let pool;
+    if (currentView === 'rankings') {
+      const topic = window.RankingsCore.pickDailyTopic(allTopics, currentRankCategory, getTodayString());
+      pool = topic ? window.RankingsCore.pickDailyItems(topic, dateStr, TOTAL_POOL) : [];
+      normalizeRankingItems(pool);
+    } else {
+      pool = selectDailyEvents(dateStr);
+    }
     const correctOrder = saved.correctEvents
       ? saved.correctEvents.map(name => pool.find(e => e.event === name) || { event: name, date: '?' })
-      : sortByDate(pool.slice(0, saved.attempted));
+      : sortByActiveKey(pool.slice(0, saved.attempted));
 
     activeEvents = saved.events
       ? saved.events.map(name => pool.find(e => e.event === name) || { event: name, date: '?' })
@@ -915,6 +1032,39 @@
     renderEventList();
   }
 
+  function startRankingPuzzle() {
+    const dateStr = getTodayString();
+    const core = window.RankingsCore;
+    const topic = core.pickDailyTopic(allTopics, currentRankCategory, dateStr);
+
+    if (!topic) {
+      document.getElementById('loading').textContent =
+        'No puzzle available for this category yet.';
+      document.getElementById('loading').classList.remove('hidden');
+      return;
+    }
+
+    activePuzzle = { topicId: topic.id, title: topic.title, axis: topic.axis };
+    renderPuzzleInfo(dateStr);
+
+    if (restorePreviousResult(dateStr)) return;
+
+    const pool = normalizeRankingItems(core.pickDailyItems(topic, dateStr, TOTAL_POOL));
+    const rng = core.mulberry32(core.hashString(dateStr + '-rank-' + currentRankCategory + '-display'));
+    const shuffled = core.seededShuffle(pool, rng);
+    activeEvents = shuffled.slice(0, INITIAL_EVENTS);
+    reserveEvents = shuffled.slice(INITIAL_EVENTS, TOTAL_POOL);
+
+    document.getElementById('loading').classList.add('hidden');
+    document.getElementById('game').classList.remove('hidden');
+    renderEventList();
+  }
+
+  function startActivePuzzle() {
+    if (currentView === 'rankings') startRankingPuzzle();
+    else startPuzzle();
+  }
+
   // --- Init ---
   async function init() {
     try {
@@ -927,6 +1077,13 @@
       return;
     }
 
+    try {
+      const rResp = await fetch('rankings.json');
+      if (rResp.ok) allTopics = await rResp.json();
+    } catch (e) {
+      allTopics = [];
+    }
+
     // Open "How to Play" on first visit, collapsed for returning players
     const howToPlay = document.getElementById('how-to-play');
     if (!localStorage.getItem('orderly-seen')) {
@@ -934,11 +1091,29 @@
       localStorage.setItem('orderly-seen', '1');
     }
 
-    currentMode = getModeFromHash();
+    const parsed = parseHash();
+    currentView = parsed.view;
+    currentMode = parsed.mode;
+    currentRankCategory = parsed.rankCategory;
+    document.getElementById('view-time').classList.toggle('active', currentView === 'time');
+    document.getElementById('view-rankings').classList.toggle('active', currentView === 'rankings');
+    document.body.classList.toggle('rankings-view', currentView === 'rankings');
+    updateTagline();
     filterEventsByMode();
     renderModeSelector();
-    startPuzzle();
+    startActivePuzzle();
     attachListDropFallback();
+
+    document.getElementById('view-time').addEventListener('click', () => switchView('time'));
+    document.getElementById('view-rankings').addEventListener('click', () => switchView('rankings'));
+
+    // Close the mode dropdown on outside click (bound once, not per render).
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('#mode-dropdown')) {
+        const menu = document.getElementById('mode-dropdown-menu');
+        if (menu) menu.classList.add('hidden');
+      }
+    });
 
     document.getElementById('add-event-btn').addEventListener('click', addEvent);
 
@@ -948,8 +1123,11 @@
     });
 
     window.addEventListener('hashchange', () => {
-      const newMode = getModeFromHash();
-      if (newMode !== currentMode) switchMode(newMode);
+      const p = parseHash();
+      if (p.view !== currentView) { switchView(p.view); return; }
+      const targetId = p.view === 'rankings' ? p.rankCategory : p.mode;
+      const activeId = p.view === 'rankings' ? currentRankCategory : currentMode;
+      if (targetId !== activeId) selectEntry(targetId);
     });
   }
 

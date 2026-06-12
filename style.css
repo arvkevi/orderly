@@ -10,7 +10,7 @@
   --surface-hover: #2a2a2d;
   --border: #3a3a3c;
   --text: #d7dadc;
-  --text-muted: #818384;
+  --text-muted: #9ea1a3;
   --correct: #538d4e;
   --correct-bg: rgba(83, 141, 78, 0.15);
   --incorrect: #c9444d;
@@ -85,6 +85,36 @@ header h1 {
 
 .tagline strong {
   color: var(--text);
+}
+
+/* Rankings prompt banner — the "what am I ordering?" question, kept prominent */
+.rank-prompt {
+  text-align: center;
+  margin: 2px auto 16px;
+  padding: 13px 18px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+}
+.rank-prompt-title {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text);
+}
+.rank-prompt-dir {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+}
+.rank-prompt-arrow {
+  opacity: 0.65;
+  margin: 0 2px;
 }
 
 /* Mode selector */
@@ -1029,4 +1059,36 @@ body.results-view #app {
     gap: 4px;
     text-align: center;
   }
+}
+
+#view-toggle {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  margin: 0 auto 12px;
+}
+.view-btn {
+  padding: 8px 18px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  border-radius: 999px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+}
+.view-btn:hover:not(.active) {
+  background: var(--surface-hover);
+  border-color: var(--text-muted);
+}
+.view-btn.active {
+  background: var(--accent);
+  color: #1a1306;
+  border-color: transparent;
+}
+.mode-item-subtitle {
+  display: block;
+  font-size: 0.8em;
+  opacity: 0.6;
+  font-weight: 400;
 }
